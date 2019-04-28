@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://example.org/author/john-doe/</loc>
+    <lastmod>2018-09-12T14:51:12+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/blog/are-you-doing-the-right-way/</loc>
+    <lastmod>2018-09-12T14:51:12+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/author/</loc>
+    <lastmod>2018-09-12T14:51:12+06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/blog/</loc>
+    <lastmod>2018-09-12T14:51:12+06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/</loc>
+    <lastmod>2018-09-12T14:51:12+06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/author/somrat/</loc>
+    <lastmod>2018-09-12T14:39:16+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/blog/simple-post-title/</loc>
+    <lastmod>2018-09-12T14:39:16+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/author/jamica-jock/</loc>
+    <lastmod>2018-09-12T12:52:36+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/blog/simple-image-post/</loc>
+    <lastmod>2018-09-12T12:52:36+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/blog/installation/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/author/themefisher/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/golang/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/hugo/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/programming/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/categories/starting/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/theme/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

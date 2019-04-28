@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Meghna</title>
+    <link>http://example.org/author/jamica-jock/</link>
+    <description>Recent content on Meghna</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Sep 2018 12:52:36 +0600</lastBuildDate>
+    
+	<atom:link href="http://example.org/author/jamica-jock/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Simple Image Post</title>
+      <link>http://example.org/blog/simple-image-post/</link>
+      <pubDate>Wed, 12 Sep 2018 12:52:36 +0600</pubDate>
+      
+      <guid>http://example.org/blog/simple-image-post/</guid>
+      <description>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</description>
+    </item>
+    
+  </channel>
+</rss>
