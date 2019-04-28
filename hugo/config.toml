@@ -54,7 +54,7 @@ home= "Home"
 logo = "images/logo.png"
 gmapAPI = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"
 # Meta data
-description = "若手開発者コミュニティ Oysters"
+description = "若手ものづくりコミュニティ Oysters"
 author = "Oysters"
 # Google Analitycs
 googleAnalitycsID = "Your ID"
