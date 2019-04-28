@@ -3,94 +3,94 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/author/john-doe/</loc>
+    <loc>https://oystersjp.github.io/author/john-doe/</loc>
     <lastmod>2018-09-12T14:51:12+06:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/blog/are-you-doing-the-right-way/</loc>
+    <loc>https://oystersjp.github.io/blog/are-you-doing-the-right-way/</loc>
     <lastmod>2018-09-12T14:51:12+06:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/author/</loc>
-    <lastmod>2018-09-12T14:51:12+06:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.org/blog/</loc>
+    <loc>https://oystersjp.github.io/author/</loc>
     <lastmod>2018-09-12T14:51:12+06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/</loc>
+    <loc>https://oystersjp.github.io/blog/</loc>
     <lastmod>2018-09-12T14:51:12+06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/author/somrat/</loc>
+    <loc>https://oystersjp.github.io/</loc>
+    <lastmod>2018-09-12T14:51:12+06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://oystersjp.github.io/author/somrat/</loc>
     <lastmod>2018-09-12T14:39:16+06:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/blog/simple-post-title/</loc>
+    <loc>https://oystersjp.github.io/blog/simple-post-title/</loc>
     <lastmod>2018-09-12T14:39:16+06:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/author/jamica-jock/</loc>
+    <loc>https://oystersjp.github.io/author/jamica-jock/</loc>
     <lastmod>2018-09-12T12:52:36+06:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/blog/simple-image-post/</loc>
+    <loc>https://oystersjp.github.io/blog/simple-image-post/</loc>
     <lastmod>2018-09-12T12:52:36+06:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/categories/</loc>
+    <loc>https://oystersjp.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/blog/installation/</loc>
+    <loc>https://oystersjp.github.io/blog/installation/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://oystersjp.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/author/themefisher/</loc>
+    <loc>https://oystersjp.github.io/author/themefisher/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/tags/golang/</loc>
+    <loc>https://oystersjp.github.io/tags/golang/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/tags/hugo/</loc>
+    <loc>https://oystersjp.github.io/tags/hugo/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/tags/programming/</loc>
+    <loc>https://oystersjp.github.io/tags/programming/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/categories/starting/</loc>
+    <loc>https://oystersjp.github.io/categories/starting/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/tags/theme/</loc>
+    <loc>https://oystersjp.github.io/tags/theme/</loc>
     <priority>0</priority>
   </url>
   
