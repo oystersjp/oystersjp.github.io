@@ -1,7 +1,7 @@
 baseURL = "https://oystersjp.github.io/"
-languageCode = "en-us"
-DefaultContentLanguage = "en"
-title = "Meghna"
+languageCode = "ja-jp"
+DefaultContentLanguage = "ja"
+title = "Oysters"
 theme = "meghna-hugo"
 summaryLength = 10
 publishDir = "../"
@@ -54,8 +54,8 @@ home= "Home"
 logo = "images/logo.png"
 gmapAPI = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"
 # Meta data
-description = "Responsive Multipurpose Parallax HTML5 Template"
-author = "Themefisher"
+description = "若手開発者コミュニティ Oysters"
+author = "Oysters"
 # Google Analitycs
 googleAnalitycsID = "Your ID"
 custom_css = ["css/custom.css"]
@@ -64,20 +64,13 @@ custom_css = ["css/custom.css"]
     [params.banner]
     enable = true
     bgImage = "images/slider/hero-area.jpg"
-    icon = "tf-ion-play"
-    heading = "Experience the new reality"
-    content= "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, excepturi. At recusandae sit perferendis autem,iste tempora nostrum numquam sapiente!"
-    btn = true
+    icon = ""
+    # contentの幅がheadingの幅に強制されてしまうのでスペースで余白を作る
+    heading = "　　　　Oysters　　　　"
+    content= "若手ものづくりコミュニティ"
+    btn = false
     btnText="Explore Us"
     btnURL="#services"
-
-    # call to action
-    [params.cta]
-    enable = true
-    title = "Great Design & Incredible Features"
-    content = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis tenetur odio impedit incidunt? Omnis accusantium ea reiciendis, fugit commodi nostrum."
-    btnURL = "#"
-    btnText = "Start a project with us"
 
     # counter
     [params.counter]
