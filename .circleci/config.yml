@@ -13,4 +13,4 @@ jobs:
           command: make build
       - run:
           name: diff check
-          command: [ ```git diff --name-only | wc -l``` -eq 0 ]
+          command: [ $(git diff --name-only | wc -l) -eq 0 ]
