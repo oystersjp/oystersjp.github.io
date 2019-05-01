@@ -20,7 +20,7 @@ publishDir = "../"
 
     [[menu.nav]]
     name = "Study"
-    URL = "studys"
+    URL = "studies"
     weight = 3
 
     [[menu.nav]]
