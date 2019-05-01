@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang
+    steps:
+      - checkout
+      - run:
+          name: get hugo
+          command: curl -L https://github.com/gohugoio/hugo/releases/download/v0.55.4/hugo_0.55.4_Linux-64bit.tar.gz | tar xz -C ./bin/
+      - run:
+          name: build html
+          command: make build
+      - run:
+          name: diff check
+          command: ./.circleci/diff-check.sh
