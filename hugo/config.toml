@@ -59,7 +59,7 @@ home= "Home"
 logo = "images/logo.png"
 gmapAPI = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"
 # Meta data
-description = "若手ものづくりコミュニティ Oysters"
+description = "若手ものづくり集団 Oysters"
 author = "Oysters"
 # Google Analitycs
 googleAnalitycsID = "Your ID"
@@ -72,7 +72,7 @@ custom_css = ["css/custom.css"]
     icon = ""
     # contentの幅がheadingの幅に強制されてしまうのでスペースで余白を作る
     heading = "　　　　Oysters　　　　"
-    content= "若手ものづくりコミュニティ"
+    content= "若手ものづくり集団"
     btn = false
     btnText="Explore Us"
     btnURL="#services"
