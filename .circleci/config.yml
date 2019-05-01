@@ -13,4 +13,4 @@ jobs:
           command: make build
       - run:
           name: diff check
-          command: ./circleci/diff-check.sh
+          command: ./.circleci/diff-check.sh
