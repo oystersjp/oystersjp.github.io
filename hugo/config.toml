@@ -19,18 +19,18 @@ publishDir = "../"
     weight = 2
 
     [[menu.nav]]
+    name = "Study"
+    URL = "studys"
+    weight = 3
+
+    [[menu.nav]]
     name = "Event"
     URL = "events"
-    weight = 3
+    weight = 4
 
     [[menu.nav]]
     name = "Development"
     URL = "developments"
-    weight = 4
-
-    [[menu.nav]]
-    name = "Service"
-    URL = "services"
     weight = 5
 
     [[menu.nav]]
