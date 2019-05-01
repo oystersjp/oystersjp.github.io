@@ -1,0 +1,12 @@
+enable : true
+headingSpan : Developments
+developmentItem :
+  - imagePath : images/development/penginnews.png
+    alt : Pengin News
+    title : Pengin News
+    content : まとめサイト
+
+  - imagePath : images/development/coinstep.png
+    alt : Coin Step
+    title : Coin Step
+    content : 仮想通貨のヴァーチャルトレードサービス
