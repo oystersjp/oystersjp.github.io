@@ -87,24 +87,24 @@ custom_css = ["css/custom.css"]
     enable = true
     bgImage = "images/backgrounds/bg-1.jpg"
         [[params.counter.counterItem]]
-        title = "Happy Clients"
-        icon = "tf-ion-android-happy"
-        count = "320"
+        title = "Studys"
+        icon = "tf-pencil2"
+        count = "?"
 
         [[params.counter.counterItem]]
-        title = "Projects completed"
-        icon = "tf-ion-archive"
-        count = "565"
+        title = "Events"
+        icon = "tf-ion-android-compass"
+        count = "?"
 
         [[params.counter.counterItem]]
-        title = "Positive feedback"
-        icon = "tf-ion-thumbsup"
-        count = "95"
+        title = "Developments"
+        icon = "tf-desktop"
+        count = "?"
 
         [[params.counter.counterItem]]
-        title = "Cups of Coffee"
-        icon = "tf-ion-coffee"
-        count = "2500"
+        title = "Eat Oysters"
+        icon = "tf-ion-fork"
+        count = "?"
 
     # footer
     [params.footer]
