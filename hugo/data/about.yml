@@ -2,14 +2,14 @@ enable : true
 heading : About
 headingSpan : Us
 aboutItem : 
-- icon : tf-tools
-  title : We're Creative
-  content : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, nihil, libero, perspiciatis eos provident laborum eum dignissimos.
+- icon : tf-ion-ios-people
+  title :  Junior Creator
+  content : Oysters は、若手ものづくり集団です！
 
-- icon : tf-strategy
-  title : We're Professional
-  content : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, nihil, libero, perspiciatis eos provident laborum eum dignissimos.
+- icon : tf-laptop
+  title : Activity
+  content : 勉強会やイベントを開催したり、プロダクト開発をしたりしています！
 
-- icon : tf-anchor2
-  title : We're Genius
-  content : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, nihil, libero, perspiciatis eos provident laborum eum dignissimos.
+- icon : tf-happy
+  title : Easy Play
+  content : ものづくり以外にも、サバゲーやダーツに行ったりゆるゆる遊んでいます！
