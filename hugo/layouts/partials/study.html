@@ -1,0 +1,28 @@
+{{ if .Site.Data.study.enable}}
+{{"<!-- study -->" | safeHTML }}
+<section id="studies" class="bg-one section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                {{"<!-- section title -->" | safeHTML }}
+                <div class="title text-center wow fadeIn" data-wow-duration="500ms">
+                    <h2><span class="color">{{ with .Site.Data.study.headingSpan }} {{ . }} {{ end }}</span></h2>
+                    <div class="border-meghna"></div>
+                </div>
+            </div>
+            {{"<!-- /section title -->" | safeHTML }}
+
+            {{ range .Site.Data.study.studyItem}}
+            {{"<!-- Single Study Item -->" | safeHTML }}
+            <article class="col-lg-12 col-md-12 col-12 wow fadeInUp" data-wow-duration="500ms">
+                <div class="text-center">
+                    <h3>{{ .title }}</h3>
+                </div>
+            </article>
+            {{"<!-- End Single Study Item -->" | safeHTML }}
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{"<!-- /study -->" | safeHTML }}
+{{ end }}
