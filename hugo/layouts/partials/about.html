@@ -32,39 +32,3 @@
 </section>
 {{"<!-- /about -->" | safeHTML}}
 {{ end }}
-
-{{ if .Site.Data.about2.enable }}
-{{"<!-- about 2 -->" | safeHTML}}
-<section class="section section-bg about-2 padding-0">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6 padding-0 ">
-                <img class="img-fluid" src="{{ .Site.Data.about2.image | absURL}}" alt="image">
-            </div>
-            <div class="col-lg-6">
-                <div class="content-block">
-                    {{with .Site.Data.about2.title}} <h2>{{ . }}</h2> {{ end }}
-                    {{with .Site.Data.about2.description}} <p>{{ . }}</p> {{ end }}
-                    {{with .Site.Data.about2.description2}} <p>{{ . }}</p> {{ end }}
-                    <div class="row">
-                        {{ range .Site.Data.about2.aboutItem }}
-                        <div class="col-lg-6">
-                            <div class="media">
-                                <div class="align-self-start mr-3">
-                                    {{with .icon}} <i class="{{ . }}"></i> {{ end }}
-                                </div>
-                                <div class="media-body">
-                                    {{with .title}} <h4 class="media-heading">{{ . }}</h4>{{ end }}
-                                    {{ with .content}} <p>{{ . }}</p> {{ end }}
-                                </div>
-                            </div>
-                        </div>
-                        {{ end }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-{{"<!-- /about 2 -->" | safeHTML}}
-{{ end }}
