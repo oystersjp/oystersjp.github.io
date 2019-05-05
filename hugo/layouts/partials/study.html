@@ -15,9 +15,15 @@
             {{ range .Site.Data.study.studyItem}}
             {{"<!-- Single Study Item -->" | safeHTML }}
             <article class="col-lg-12 col-md-12 col-12 wow fadeInUp" data-wow-duration="500ms">
-                <div class="text-center">
-                    <h3>{{ .title }}</h3>
-                </div>
+                <a href={{ .url }}>
+                    <div class="study-block text-center">
+                        <div class="study-icon text-center">
+                            <i class="{{ .icon }}"></i>
+                        </div>
+                        <h3>{{ .title }}</h3>
+                        <p>{{ .content }}</p>
+                    </div>
+                </a>
             </article>
             {{"<!-- End Single Study Item -->" | safeHTML }}
             {{ end }}
