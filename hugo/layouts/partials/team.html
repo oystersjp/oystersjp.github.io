@@ -15,11 +15,12 @@
                 {{ range .Site.Data.team.teamItem}}
                     {{"<!-- Single Team Item -->" | safeHTML }}
                     <article class="col-lg-12 col-md-12 col-12 wow fadeInUp" data-wow-duration="500ms">
-                        <a href={{ .url }}>
+                        <a href={{ .url }} target="_blank">
                             <div class="team-block text-center">
                                 <div class="team-icon text-center">
                                     <i class="{{ .icon }}"></i>
                                 </div>
+                                <h2>{{ .title }}</h2>
                                 <p>{{ .content }}</p>
                             </div>
                         </a>
