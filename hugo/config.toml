@@ -34,29 +34,19 @@ publishDir = "../"
     weight = 5
 
     [[menu.nav]]
-    name = "Portfolio"
-    URL = "portfolio"
-    weight = 6
-
-    [[menu.nav]]
     name = "Team"
     URL = "our-team"
-    weight = 7
-
-    [[menu.nav]]
-    name = "Pricing"
-    URL = "pricing"
-    weight = 8
+    weight = 6
 
     [[menu.nav]]
     name = "Blog"
     URL = "blog"
-    weight = 9
+    weight = 7
 
     [[menu.nav]]
     name = "Contact"
     URL = "contact-us"
-    weight = 10
+    weight = 8
 
 # Site params
 [params]
