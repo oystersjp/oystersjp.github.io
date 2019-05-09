@@ -77,7 +77,7 @@ custom_css = ["css/custom.css"]
     enable = true
     bgImage = "images/backgrounds/bg-1.jpg"
         [[params.counter.counterItem]]
-        title = "Studys"
+        title = "Studies"
         icon = "tf-pencil2"
         count = "?"
 
