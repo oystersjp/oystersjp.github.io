@@ -1,4 +1,20 @@
 /*=================================================================
+  Studies section
+==================================================================*/
+.study-block {
+    padding: 60px 20px;
+    border-left: 1px solid rgba(236, 239, 241, 0.07);
+    border-top: 1px solid rgba(236, 239, 241, 0.07);
+    margin-bottom: 40px;
+    box-shadow: 2px 2px 5px rgba(44, 44, 44, 0.3), 13px 13px 0 rgba(255, 255, 255, 0.7);
+}
+
+.study-block .study-icon {
+    margin-bottom: 10px;
+    font-size: 50px;
+}
+
+/*=================================================================
   Events section
 ==================================================================*/
 .event-block {
@@ -12,40 +28,6 @@
 .event-block .event-icon {
     margin-bottom: 10px;
     font-size: 50px;
-}
-
-/*=================================================================
-  Events section 2
-==================================================================*/
-.event-2 .event-item {
-    border: 1px solid #eee;
-    margin-bottom: 30px;
-    padding: 50px 20px;
-    transition: all 0.3s ease 0s;
-}
-
-.event-2 .event-item:hover {
-    box-shadow: 0 5px 65px 0 rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 0 5px 65px 0 rgba(0, 0, 0, 0.15);
-}
-
-.event-2 .event-item:hover i {
-    background: #fff;
-    color: #57cbcc;
-}
-
-.event-2 .event-item i {
-    font-size: 30px;
-    display: inline-block;
-    background: #57cbcc none repeat scroll 0 0;
-    border-radius: 30px;
-    box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.1);
-    color: #fff;
-    height: 55px;
-    line-height: 55px;
-    margin-bottom: 20px;
-    width: 55px;
-    transition: all 0.3s ease 0s;
 }
 
 /*=================================================================
