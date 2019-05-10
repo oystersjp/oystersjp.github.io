@@ -1,6 +1,6 @@
 enable : true
-sharing : true
-staticmanComments:
-  enable: false
-  notifications: true
-  api: https://dev.staticman.net/v3/entry/github/themefisher/meghna-hugo/master/comments
+headingSpan : Blog
+blogItem :
+  - icon : tf-ion-document-text
+    url : https://hatenablog.com/g/8599973812282937084
+    content : Oysters の はてなブログ グループ
