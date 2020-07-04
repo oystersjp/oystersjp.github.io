@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run:
           name: get hugo
-          command: curl -L https://github.com/gohugoio/hugo/releases/download/v$TARGET_VERSION/hugo_$TARGET_VERSION_Linux-64bit.tar.gz | tar xz -C ./bin/
+          command: curl -L https://github.com/gohugoio/hugo/releases/download/v${TARGET_VERSION}/hugo_${TARGET_VERSION}_Linux-64bit.tar.gz | tar xz -C ./bin/
       - run:
           name: build html
           command: make build
