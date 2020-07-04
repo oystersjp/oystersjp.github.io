@@ -56,7 +56,7 @@
 		<script src="{{ $script.Permalink }}"></script>
 		{{ "<!-- google analitycs -->" | safeHTML }}
 		{{"<!-- Scroll behavior polyfill -->" | safeHTML}}
-		{{ $string := (printf "var rootURL: '%s'; var apiURL: '%s';" (absURL "/") (.Param "API_URL")) }}
+		{{ $string := (printf "var rootURL= '%s'; var apiURL= '%s';" (absURL "/") (.Param "API_URL")) }}
 		{{ $targetPath := "js/scroll-behavior-polyfill.js" }}
 		{{ $scroll := $string | resources.FromString $targetPath }}
 		<script src="{{ $scroll.Permalink }}"></script>
