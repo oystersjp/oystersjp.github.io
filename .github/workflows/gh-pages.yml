@@ -20,7 +20,7 @@ jobs:
           hugo-version: '0.58.3'
 
       - name: Build
-        run: make build
+        run: make build HUGO=$(which hugo)
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
