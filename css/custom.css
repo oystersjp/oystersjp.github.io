@@ -143,7 +143,13 @@
 
 .blog-block .blog-icon {
     margin-bottom: 10px;
+    padding: 0;
     font-size: 50px;
+    width: 1.5em;
+    height: 1.5em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /*=================================================================
