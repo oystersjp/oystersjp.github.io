@@ -65,8 +65,7 @@ custom_css = ["css/custom.css"]
     enable = true
     bgImage = "images/slider/hero-area.jpg"
     icon = ""
-    # contentの幅がheadingの幅に強制されてしまうのでスペースで余白を作る
-    heading = "　　　　Oysters　　　　"
+    heading = "Oysters"
     content= "若手ものづくり集団"
     btn = false
     btnText="Explore Us"
