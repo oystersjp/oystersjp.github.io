@@ -47,15 +47,19 @@
 		<script type="text/javascript" src="{{ "plugins/count-to/jquery.countTo.js" | absURL}}"></script>
 		{{"<!-- wow.min Script -->" | safeHTML}}
 		<script type="text/javascript" src="{{ "plugins/wow/dist/wow.min.js" | absURL}}"></script>
-		{{"<!-- Scroll behavior polyfill -->" | safeHTML}}
-		{{ $scroll := resources.Get "js/scroll-behavior-polyfill.js" | minify}}
-		<script src="{{ $scroll.Permalink }}"></script>
+		{{"<!-- lozad.min Script -->" | safeHTML}}
+		<script type="text/javascript" src="{{ "plugins/lazy-load/lozad.min.js" | absURL}}"></script>
 		{{"<!-- Sweet Alert -->" | safeHTML}}
 		<script type="text/javascript" src="{{ "plugins/sweet-alert/sweetalert.min.js" | absURL}}"></script>
 		{{"<!-- Custom js -->" | safeHTML}}
 		{{ $script := resources.Get "js/script.js" | minify}}
 		<script src="{{ $script.Permalink }}"></script>
 		{{ "<!-- google analitycs -->" | safeHTML }}
+		{{"<!-- Scroll behavior polyfill -->" | safeHTML}}
+		{{ $string := (printf "var rootURL= '%s'; var apiURL= '%s';" (absURL "/") (.Param "API_URL")) }}
+		{{ $targetPath := "js/scroll-behavior-polyfill.js" }}
+		{{ $scroll := $string | resources.FromString $targetPath }}
+		<script src="{{ $scroll.Permalink }}"></script>
 		<script>
 				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
