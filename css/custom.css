@@ -1,6 +1,11 @@
 /*=================================================================
   Hero section
 ==================================================================*/
+.hero-area {
+    background-position: center center;
+    background-size: cover;
+}
+
 .hero-area .block {
     /* ref: https://github.com/oystersjp/oystersjp.github.io/issues/30 */
     width: 100%;
