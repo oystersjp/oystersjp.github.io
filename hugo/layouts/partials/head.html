@@ -30,7 +30,8 @@
     <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
     {{ "<!-- Custom CSS -->" | safeHTML }}
     {{ range .Site.Params.custom_css }}
-    <link rel="stylesheet" href="{{ . | absURL }}">
+        {{ $styles := resources.Get . | minify | fingerprint }}
+        <link rel="stylesheet" href="{{ $styles.Permalink }}">
     {{ end }}
 
 </head>
