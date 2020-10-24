@@ -56,6 +56,11 @@ gmapAPI = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSp
 # Meta data
 description = "若手ものづくり集団 Oysters"
 author = "Oysters"
+ogTitle = "Oysters"
+ogType = "article"
+ogUrl = "https://oystersjp.github.io/"
+ogImage = "images/slider/hero-area.jpg"
+
 # Google Analitycs
 googleAnalitycsID = "Your ID"
 custom_css = ["css/custom.css"]

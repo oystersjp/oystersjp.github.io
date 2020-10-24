@@ -3,6 +3,17 @@
     <meta name="description" content="{{ if .Description }}{{ .Description }}{{else if .IsPage}}{{ .Summary | plainify}}{{ else }}{{.Site.Params.description}}{{ end }}">
     <meta name="author" content="{{ with .Params.author }}{{ . }}{{else}}{{ with .Site.Params.author}}{{ . }}{{ end }}{{end}}">
 
+    <meta property="og:title" content="{{ .Site.Params.OgTitle }}" />
+    <meta property="og:type" content="{{ .Site.Params.OgType }}" />
+    <meta property="og:description" content="{{ .Site.Params.Description }}" />
+    <meta property="og:url" content="{{ .Site.Params.OgUrl }}" />
+    {{ $image := resources.Get .Site.Params.OgImage | fingerprint }}
+    <meta property="og:image" content="{{ $image.Permalink }}" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ .Site.Params.OgTitle }}">
+    <meta name="twitter:description" content="{{ .Site.Params.Description }}">
+    <meta name="twitter:image:src" content="{{ $image.Permalink }}">
+
     {{ "<!-- Mobile Specific Meta -->" | safeHTML }}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{ .Hugo.Generator }}
