@@ -3,10 +3,10 @@
     <meta name="description" content="{{ if .Description }}{{ .Description }}{{else if .IsPage}}{{ .Summary | plainify}}{{ else }}{{.Site.Params.description}}{{ end }}">
     <meta name="author" content="{{ with .Params.author }}{{ . }}{{else}}{{ with .Site.Params.author}}{{ . }}{{ end }}{{end}}">
 
-    <meta property="og:title" content="{{ .Site.Params.OgTitle }}" >
-    <meta property="og:type" content="{{ .Site.Params.OgType }}" >
-    <meta property="og:description" content="{{ .Site.Params.Description }}" >
-    <meta property="og:url" content="{{ .Site.Params.OgUrl }}" >
+    <meta property="og:title" content="{{ .Site.Params.OgTitle }}">
+    <meta property="og:type" content="{{ .Site.Params.OgType }}">
+    <meta property="og:description" content="{{ .Site.Params.Description }}">
+    <meta property="og:url" content="{{ .Site.Params.OgUrl }}">
     {{ $image := resources.Get .Site.Params.OgImage }}
     {{ $imageUrl := ($image.Resize "1000x q50" | fingerprint).Permalink }}
     <meta property="og:image" content="{{ $imageUrl }}" >
@@ -23,7 +23,7 @@
 
 
     {{"<!-- Favicon -->" |safeHTML}}
-    <link rel="shortcut icon" type="image/x-icon" href="{{ "images/favicon.ico" | absURL }}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ "images/favicon.ico" | absURL }}">
 
     {{"<!-- CSS -->"|safeHTML}}
     {{"<!-- Fontawesome Icon font -->"|safeHTML}}
