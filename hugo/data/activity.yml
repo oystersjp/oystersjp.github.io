@@ -1,0 +1,14 @@
+enable : true
+headingSpan : Activity
+activityItem :
+  - imagePath : images/activity/study.jpg
+    alt : Study
+    title : Study
+    url : https://github.com/oystersjp/neta-note/issues?q=is%3Aclosed+is%3Aissue+label%3Astudy
+    content : 有志で勉強会や読書会など実施しています！
+
+  - imagePath : images/activity/event.jpg
+    alt : Event
+    title : Event
+    url : https://oysters.connpass.com/event/
+    content : 無限LTや開発合宿などのイベントを開催しています！

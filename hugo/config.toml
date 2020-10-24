@@ -19,34 +19,29 @@ publishDir = "../public"
     weight = 2
 
     [[menu.nav]]
-    name = "Study"
-    URL = "studies"
+    name = "Activity"
+    URL = "activity"
     weight = 3
-
-    [[menu.nav]]
-    name = "Event"
-    URL = "events"
-    weight = 4
 
     [[menu.nav]]
     name = "Development"
     URL = "developments"
-    weight = 5
+    weight = 4
 
     [[menu.nav]]
     name = "Team"
     URL = "our-team"
-    weight = 6
+    weight = 5
 
     [[menu.nav]]
     name = "Blog"
     URL = "blog"
-    weight = 7
+    weight = 6
 
     [[menu.nav]]
     name = "Contact"
     URL = "contact-us"
-    weight = 8
+    weight = 7
 
 # Site params
 [params]
