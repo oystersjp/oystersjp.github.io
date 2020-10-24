@@ -1,7 +1,0 @@
-enable : true
-headingSpan : Events
-eventItem :
-  - icon : tf-ion-android-compass
-    title : Connpass
-    url : https://oysters.connpass.com/event/
-    content : Oysters 主催のイベント一覧

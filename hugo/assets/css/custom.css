@@ -20,38 +20,6 @@
 }
 
 /*=================================================================
-  Studies section
-==================================================================*/
-.study-block {
-    padding: 60px 20px;
-    border-left: 1px solid rgba(236, 239, 241, 0.07);
-    border-top: 1px solid rgba(236, 239, 241, 0.07);
-    margin-bottom: 40px;
-    box-shadow: 2px 2px 5px rgba(44, 44, 44, 0.3), 13px 13px 0 rgba(255, 255, 255, 0.7);
-}
-
-.study-block .study-icon {
-    margin-bottom: 10px;
-    font-size: 50px;
-}
-
-/*=================================================================
-  Events section
-==================================================================*/
-.event-block {
-    padding: 60px 20px;
-    border-left: 1px solid rgba(236, 239, 241, 0.07);
-    border-top: 1px solid rgba(236, 239, 241, 0.07);
-    margin-bottom: 40px;
-    box-shadow: 2px 2px 5px rgba(44, 44, 44, 0.3), 13px 13px 0 rgba(255, 255, 255, 0.7);
-}
-
-.event-block .event-icon {
-    margin-bottom: 10px;
-    font-size: 50px;
-}
-
-/*=================================================================
   Activity section
 ==================================================================*/
 .activity-block {
