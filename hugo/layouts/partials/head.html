@@ -7,12 +7,13 @@
     <meta property="og:type" content="{{ .Site.Params.OgType }}" >
     <meta property="og:description" content="{{ .Site.Params.Description }}" >
     <meta property="og:url" content="{{ .Site.Params.OgUrl }}" >
-    {{ $image := resources.Get .Site.Params.OgImage | fingerprint }}
-    <meta property="og:image" content="{{ $image.Permalink }}" >
+    {{ $image := resources.Get .Site.Params.OgImage }}
+    {{ $imageUrl := ($image.Resize "1000x q50" | fingerprint).Permalink }}
+    <meta property="og:image" content="{{ $imageUrl }}" >
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ .Site.Params.OgTitle }}">
     <meta name="twitter:description" content="{{ .Site.Params.Description }}">
-    <meta name="twitter:image:src" content="{{ $image.Permalink }}">
+    <meta name="twitter:image:src" content="{{ $imageUrl }}">
 
     {{ "<!-- Mobile Specific Meta -->" | safeHTML }}
     <meta name="viewport" content="width=device-width, initial-scale=1">
