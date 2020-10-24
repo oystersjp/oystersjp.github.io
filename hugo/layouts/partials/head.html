@@ -8,8 +8,8 @@
     <meta property="og:description" content="{{ .Site.Params.Description }}">
     <meta property="og:url" content="{{ .Site.Params.OgUrl }}">
     {{ $image := resources.Get .Site.Params.OgImage }}
-    {{ $imageUrl := ($image.Resize "1000x q50" | fingerprint).Permalink }}
-    <meta property="og:image" content="{{ $imageUrl }}" >
+    {{ $imageUrl := ($image.Resize "1200x630 q70" | fingerprint).Permalink }}
+    <meta property="og:image" content="{{ $imageUrl }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ .Site.Params.OgTitle }}">
     <meta name="twitter:description" content="{{ .Site.Params.Description }}">
