@@ -71,29 +71,10 @@ custom_css = ["css/custom.css"]
     btnText="Explore Us"
     btnURL="#services"
 
-    # counter
-    [params.counter]
+    # oyster
+    [params.oyster]
     enable = true
-    bgImage = "images/backgrounds/bg-1.jpg"
-        [[params.counter.counterItem]]
-        title = "Studies"
-        icon = "tf-pencil2"
-        count = "?"
-
-        [[params.counter.counterItem]]
-        title = "Events"
-        icon = "tf-ion-android-compass"
-        count = "?"
-
-        [[params.counter.counterItem]]
-        title = "Developments"
-        icon = "tf-desktop"
-        count = "?"
-
-        [[params.counter.counterItem]]
-        title = "Eat Oysters"
-        icon = "tf-ion-fork"
-        count = "?"
+    bgImage = "images/backgrounds/oyster.jpg"
 
     # footer
     [params.footer]
