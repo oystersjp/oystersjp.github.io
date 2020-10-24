@@ -1,5 +1,5 @@
 enable : true
-headingSpan : Activity
+headingSpan : Our Activities
 activityItem :
   - imagePath : images/activity/study.jpg
     alt : Study
