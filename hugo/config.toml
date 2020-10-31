@@ -76,6 +76,11 @@ custom_css = ["css/custom.css"]
     enable = true
     bgImage = "images/backgrounds/oyster.jpg"
 
+    # bus
+    [params.bus]
+    enable = true
+    bgImage = "images/backgrounds/bus.jpg"
+
     # footer
     [params.footer]
         copyright = "Themefisher Team"
