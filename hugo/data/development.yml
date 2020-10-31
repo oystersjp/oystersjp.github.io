@@ -1,12 +1,14 @@
 enable : true
 headingSpan : Developments
 developmentItem :
-  - imagePath : images/development/penginnews.png
+  - imagePath : images/development/penginnews.jpg
+    url : "#"
     alt : Pengin News
     title : Pengin News
     content : まとめサイト
 
-  - imagePath : images/development/coinstep.png
+  - imagePath : images/development/coinstep.jpg
+    url : https://coin-step.com/
     alt : Coin Step
     title : Coin Step
     content : 仮想通貨のヴァーチャルトレードサービス
