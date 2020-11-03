@@ -1,7 +1,0 @@
-enable : true
-headingSpan : Contact
-contactItem :
-  - icon : tf-ion-social-twitter-outline
-    # FIXME: 誰かの Twitter URL を入力する？
-    url :
-    content : お気軽に Oysters のメンバーへお声掛けください！
