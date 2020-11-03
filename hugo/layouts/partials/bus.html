@@ -1,0 +1,5 @@
+{{ if .Site.Params.bus.enable }}
+{{"<!-- Start Oyster Section -->" | safeHTML}}
+<section id="oyster" class="parallax-section bg-1 section overly" style='background-image: url("{{ .Site.Params.bus.bgImage | absURL }}")'></section>
+{{"<!-- /Oyster Section -->" | safeHTML}}
+{{ end }}
