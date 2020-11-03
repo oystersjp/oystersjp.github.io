@@ -24,8 +24,8 @@ publishDir = "../public"
     weight = 3
 
     [[menu.nav]]
-    name = "Outputs"
-    URL = "outputs"
+    name = "Our Works"
+    URL = "works"
     weight = 4
 
     [[menu.nav]]

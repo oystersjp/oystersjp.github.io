@@ -36,9 +36,9 @@
 }
 
 /*=================================================================
-  Outputs section
+  Works section
 ==================================================================*/
-.output-block {
+.work-block {
     padding: 60px 20px;
     border-left: 1px solid rgba(236, 239, 241, 0.07);
     border-top: 1px solid rgba(236, 239, 241, 0.07);
@@ -46,32 +46,32 @@
     box-shadow: 2px 2px 5px rgba(44, 44, 44, 0.3), 13px 13px 0 rgba(255, 255, 255, 0.7);
 }
 
-.output-block .output-icon {
+.work-block .work-icon {
     margin-bottom: 10px;
     font-size: 50px;
 }
 
 /*=================================================================
-  Outputs section 2
+  Works section 2
 ==================================================================*/
-.output-2 .output-item {
+.work-2 .work-item {
     border: 1px solid #eee;
     margin-bottom: 30px;
     padding: 50px 20px;
     transition: all 0.3s ease 0s;
 }
 
-.output-2 .output-item:hover {
+.work-2 .work-item:hover {
     box-shadow: 0 5px 65px 0 rgba(0, 0, 0, 0.15);
     -webkit-box-shadow: 0 5px 65px 0 rgba(0, 0, 0, 0.15);
 }
 
-.output-2 .output-item:hover i {
+.work-2 .work-item:hover i {
     background: #fff;
     color: #57cbcc;
 }
 
-.output-2 .output-item i {
+.work-2 .work-item i {
     font-size: 30px;
     display: inline-block;
     background: #57cbcc none repeat scroll 0 0;
@@ -85,7 +85,7 @@
     transition: all 0.3s ease 0s;
 }
 
-.output-icon {
+.work-icon {
     border: 1px solid #6CB670;
     border-radius: 50%;
     color: #6CB670;

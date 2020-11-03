@@ -1,15 +1,15 @@
 enable : true
-headingSpan : Outputs
-outputItem :
+headingSpan : Our Works
+workItem :
   - isUsedIcon : false
-    imagePath : images/output/penginnews.jpg
+    imagePath : images/work/penginnews.jpg
     url : "#"
     alt : Pengin News
     title : Pengin News
     content : まとめサイト
 
   - isUsedIcon : false
-    imagePath : images/output/coinstep.jpg
+    imagePath : images/work/coinstep.jpg
     url : https://coin-step.com/
     alt : Coin Step
     title : Coin Step
