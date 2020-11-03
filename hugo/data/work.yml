@@ -1,23 +1,14 @@
 enable : true
 headingSpan : Our Works
 workItem :
-  - isUsedIcon : false
-    imagePath : images/work/penginnews.jpg
+  - imagePath : images/work/penginnews.jpg
     url : "#"
     alt : Pengin News
     title : Pengin News
     content : まとめサイト
 
-  - isUsedIcon : false
-    imagePath : images/work/coinstep.jpg
+  - imagePath : images/work/coinstep.jpg
     url : https://coin-step.com/
     alt : Coin Step
     title : Coin Step
     content : 仮想通貨のヴァーチャルトレードサービス
-
-  - isUsedIcon : true
-    icon: tf-ion-document-text
-    url: https://hatenablog.com/g/8599973812282937084
-    alt: Oysters の はてなブログ グループ
-    title: Blog
-    content: Oysters の はてなブログ グループ
