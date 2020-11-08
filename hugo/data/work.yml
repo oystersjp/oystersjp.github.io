@@ -1,13 +1,13 @@
 enable : true
-headingSpan : Developments
-developmentItem :
-  - imagePath : images/development/penginnews.jpg
+headingSpan : Our Works
+workItem :
+  - imagePath : images/work/penginnews.jpg
     url : "#"
     alt : Pengin News
     title : Pengin News
     content : まとめサイト
 
-  - imagePath : images/development/coinstep.jpg
+  - imagePath : images/work/coinstep.jpg
     url : https://coin-step.com/
     alt : Coin Step
     title : Coin Step
