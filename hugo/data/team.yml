@@ -1,7 +1,0 @@
-enable : true
-headingSpan : Team
-teamItem :
-  - icon : tf-ion-ios-people
-    url : https://github.com/orgs/oystersjp/people
-    title : Oysters Peoples
-    content : イカれたメンバーを紹介するぜ！
