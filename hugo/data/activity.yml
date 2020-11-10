@@ -1,5 +1,5 @@
 enable : true
-headingSpan : Our Activities
+headingSpan : 活動内容
 activityItem :
   - isUsedIcon : false
     imagePath : images/activity/study.jpg

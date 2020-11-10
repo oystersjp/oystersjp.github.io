@@ -14,17 +14,17 @@ publishDir = "../public"
 # Menu
 [menu]
     [[menu.nav]]
-    name = "About Us"
+    name = "Oystersとは？"
     URL = "about"
     weight = 2
 
     [[menu.nav]]
-    name = "Our Activities"
+    name = "活動内容"
     URL = "activities"
     weight = 3
 
     [[menu.nav]]
-    name = "Our Works"
+    name = "作ってきたもの"
     URL = "works"
     weight = 4
 
