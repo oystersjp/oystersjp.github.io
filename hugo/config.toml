@@ -24,14 +24,9 @@ publishDir = "../public"
     weight = 3
 
     [[menu.nav]]
-    name = "Development"
-    URL = "developments"
+    name = "Our Works"
+    URL = "works"
     weight = 4
-
-    [[menu.nav]]
-    name = "Blog"
-    URL = "blog"
-    weight = 5
 
 # Site params
 [params]
