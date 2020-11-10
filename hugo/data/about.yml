@@ -1,7 +1,7 @@
 enable : true
-heading : About
-headingSpan : Us
-aboutItem : 
+headingSpan : Oysters
+heading : とは？
+aboutItem :
 - icon : tf-ion-ios-people
   title :  Junior Creator
   content : Oysters は、若手ものづくり集団です！

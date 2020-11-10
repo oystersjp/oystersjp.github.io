@@ -1,5 +1,5 @@
 enable : true
-headingSpan : Our Works
+headingSpan : 作ってきたもの
 workItem :
   - imagePath : images/work/penginnews.jpg
     url : "#"
