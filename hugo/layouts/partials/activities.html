@@ -1,48 +1,30 @@
-{{ if .Site.Data.activity.enable}}
-{{"<!-- activity -->" | safeHTML }}
-<section id="activities" class="bg-one section">
+{{ if .Site.Data.activities.enable}}
+<section id="activities" class="section">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                {{"<!-- section title -->" | safeHTML }}
-                <div class="title text-center wow fadeIn" data-wow-duration="500ms">
-                    <h2><span class="color">{{ with .Site.Data.activity.headingSpan }} {{ . }} {{ end }}</span></h2>
+		<div class="row justify-content-center">
+			<div class="col-lg-12">
+				<div class="title text-center wow fadeInDown">
+                    <h2><span class="color">{{ .Site.Data.activities.headingSpan }}</span></h2>
                     <div class="border-meghna"></div>
                 </div>
             </div>
-            {{"<!-- /section title -->" | safeHTML }}
 
-            {{ range .Site.Data.activity.activityItems }}
-                {{ if .isUsedIcon }}
-                    {{"<!-- Single Activity Item -->" | safeHTML }}
-                    <article class="col-lg-12 col-md-12 col-12 wow fadeInUp" data-wow-duration="500ms">
-                        <a href={{ .url }} target="_blank">
-                            <div class="work-block text-center">
-                                <div class="work-icon text-center">
-                                    <i class="{{ .icon }}"></i>
-                                </div>
-                                <h3>{{ .title }}</h3>
-                                <p>{{ .content }}</p>
-                            </div>
-                        </a>
-                    </article>
-                    {{"<!-- End Single Activity Item -->" | safeHTML }}
-                {{ else }}
-                    {{"<!-- Single Activity Item -->" | safeHTML }}
-                    <article class="col-lg-6 col-md-6 col-12 wow fadeInUp" data-wow-duration="500ms">
-                        <a href={{ .url }} target="_blank">
-                            <div class="activity-block text-center">
-                                <img class="img-fluid" src="{{ .imagePath }}" alt="{{ .alt }}">
-                                <h3>{{ .title }}</h3>
-                                <p>{{ .content }}</p>
-                            </div>
-                        </a>
-                    </article>
-                    {{"<!-- End Single Activity Item -->" | safeHTML }}
-                {{ end }}
+            {{ range .Site.Data.activities.activityItems }}
+                <article class="col-lg-4 col-md-6 col-12 clearfix wow fadeInUp mb-4" data-wow-duration="500ms">
+                    <div class="post-block">
+                        <div class="media-wrapper">
+                            {{- $image := resources.Get .imagePath -}}
+                            <img class="img-fluid lozad" data-src="{{ ($image.Fill "600x400" | fingerprint).Permalink }}" alt="{{ .alt }}" onerror="this.onerror=null;this.src='{{ .Params.Image | absURL }}'">
+                        </div>
+                        <div class="content">
+                            <h3>{{ .title }}</h3>
+                            <p>{{ .content }}</p>
+                            <a class="btn btn-transparent" href="{{ .url }}" target="_blank" rel="noreferrer noreferrer">{{ .linkTitle }} <i class="tf-ion-android-open"></i></a>
+                        </div>
+                    </div>
+                </article>
             {{ end }}
         </div>
     </div>
 </section>
-{{"<!-- /activity -->" | safeHTML }}
 {{ end }}

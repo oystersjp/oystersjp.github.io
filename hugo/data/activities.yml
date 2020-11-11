@@ -1,23 +1,23 @@
 enable : true
 headingSpan : 活動内容
 activityItems :
-  - isUsedIcon : false
-    imagePath : images/activities/study.jpg
-    alt : Study
-    title : Study
+  - title : Learning Tech Skills
+    imagePath : /images/activities/study.jpg
+    alt : 勉強会の様子
+    content : 勉強会、読書会の実施や技術情報の共有をしています
+    linkTitle : oystersjp/neta-note
     url : https://github.com/oystersjp/neta-note/issues?q=is%3Aclosed+is%3Aissue+label%3Astudy
-    content : 有志で勉強会や読書会など実施しています！
 
-  - isUsedIcon: false
-    imagePath : images/activities/event.jpg
-    alt : Event
-    title : Event
+  - title : Holding Tech Events
+    imagePath : /images/activities/event.jpg
+    alt : 開発合宿の様子
+    linkTitle : connpass
     url : https://oysters.connpass.com/event/
-    content : 無限LTや開発合宿などのイベントを開催しています！
+    content : 無限LTや開発合宿などのイベントを開催しています
 
-  - isUsedIcon : true
-    icon: tf-ion-document-text
-    url: https://hatenablog.com/g/8599973812282937084
-    alt: 日々のアウトプットとしてブログを書いています！
-    title: Blog
-    content: 日々のアウトプットとしてブログを書いています！
+  - title: Writing A Tech Blog
+    imagePath : /images/activities/blog.jpg
+    alt : パソコンを使用している写真
+    content: 日々のアウトプットとしてブログを書いています
+    linkTitle : はてなブログ グループ
+    url : https://hatenablog.com/g/8599973812282937084
