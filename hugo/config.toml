@@ -31,7 +31,8 @@ publishDir = "../public"
 # Site params
 [params]
 home= "Home"
-logo = "images/logo.png"
+logo = "/assets/images/logo.svg"
+logoText = "Oysters"
 gmapAPI = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"
 # Meta data
 description = "若手ものづくり集団 Oysters"
