@@ -28,7 +28,7 @@ publishDir = "../public"
 
     [[menu.nav]]
     name = "作ってきたもの"
-    URL = "works"
+    URL = "products"
     weight = 4
 
 # Site params
