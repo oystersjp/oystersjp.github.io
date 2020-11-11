@@ -20,5 +20,6 @@ make watch
 Special Thanks
 ----
 * [Hugo](https://gohugo.io/)
-* [THEMEFISHER](https://themefisher.com)
+* [themefisher/meghna-hugo](https://github.com/themefisher/meghna-hugo)
+* [themefisher/themefisher-font](https://github.com/themefisher/themefisher-font)
 
