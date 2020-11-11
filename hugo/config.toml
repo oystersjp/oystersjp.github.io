@@ -17,7 +17,7 @@ publishDir = "../public"
 # Menu
 [menu]
     [[menu.nav]]
-    name = "Oystersとは？"
+    name = "Oysters?"
     URL = "about"
     weight = 2
 
@@ -59,16 +59,6 @@ custom_css = ["css/custom.css"]
     btn = false
     btnText="Explore Us"
     btnURL="#services"
-
-    # oyster
-    [params.oyster]
-    enable = true
-    bgImage = "images/backgrounds/oyster.jpg"
-
-    # bus
-    [params.bus]
-    enable = true
-    bgImage = "images/backgrounds/bus.jpg"
 
     # footer
     [params.footer]

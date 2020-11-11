@@ -1,15 +1,16 @@
 enable : true
-headingSpan : Oysters
-heading : とは？
-aboutItem :
-- icon : tf-ion-ios-people
-  title :  Junior Creator
-  content : Oysters は、若手ものづくり集団です！
+title : 若手ものづくり集団 Oysters
+content : Play With Us!!をモットーに活動する若手(?)エンジニアの集団です
+bgImage : /images/about/oysters.jpg
+aboutItems :
+- title : We Are Junior Creators
+  content : 50名の若手エンジニアの集いです
+  icon : tf-ion-laptop
 
-- icon : tf-laptop
-  title : Activity
-  content : 勉強会やイベントを開催したり、プロダクト開発をしたりしています！
+- title : We Use Slack
+  content : ワイワイするためのSlackがあります
+  icon : tf-ion-chatboxes
 
-- icon : tf-happy
-  title : Easy Play
-  content : ものづくり以外にも、サバゲーやダーツに行ったりゆるゆる遊んでいます！
+- title : We Play Fan Activities
+  content : (主に) web系のトピックについて話したり、一緒になんか作ったり、モクモクしたりしています
+  icon : tf-ion-beer
