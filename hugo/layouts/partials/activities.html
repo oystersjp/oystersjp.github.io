@@ -12,7 +12,7 @@
             </div>
             {{"<!-- /section title -->" | safeHTML }}
 
-            {{ range .Site.Data.activity.activityItem}}
+            {{ range .Site.Data.activity.activityItems }}
                 {{ if .isUsedIcon }}
                     {{"<!-- Single Activity Item -->" | safeHTML }}
                     <article class="col-lg-12 col-md-12 col-12 wow fadeInUp" data-wow-duration="500ms">
