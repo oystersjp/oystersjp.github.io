@@ -1,4 +1,12 @@
 /*=================================================================
+  Navigation
+==================================================================*/
+#navigation .navbar-brand svg {
+    width: 140px;
+    height: auto;
+}
+
+/*=================================================================
   Hero section
 ==================================================================*/
 .hero-area {
@@ -6,9 +14,17 @@
     background-size: cover;
 }
 
-.hero-area .block {
-    /* ref: https://github.com/oystersjp/oystersjp.github.io/issues/30 */
-    width: 100%;
+.hero-area .block h1 {
+    font-size: 40px;
+}
+
+@media (max-width: 480px) {
+    .hero-area .block {
+        margin-top: -3em;
+    }
+    .hero-area .block h1 {
+        font-size: 30px;
+    }
 }
 
 /*=================================================================
@@ -91,4 +107,12 @@
     color: #6CB670;
     display: inline-block;
     padding: 16px 20px;
+}
+
+/*=================================================================
+  Copyright
+==================================================================*/
+.copyright svg {
+    width: 150px;
+    height: auto;
 }
