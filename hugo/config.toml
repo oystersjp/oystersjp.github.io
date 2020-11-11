@@ -11,6 +11,9 @@ publishDir = "../public"
   category = "categories"
   tag = "tags"
 
+[minify]
+  disableSVG = true
+
 # Menu
 [menu]
     [[menu.nav]]
