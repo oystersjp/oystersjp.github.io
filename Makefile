@@ -1,6 +1,6 @@
 HUGO = bin/hugo
 THEME = hugo/themes/meghna-hugo
-TARGET_VERSION = 0.58.3
+TARGET_VERSION = 0.78.0
 
 .PHONY: build watch
 build: $(HUGO) $(THEME)
