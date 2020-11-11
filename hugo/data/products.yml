@@ -1,14 +1,21 @@
 enable : true
-headingSpan : 作ってきたもの
-workItem :
-  - imagePath : images/work/penginnews.jpg
-    url : "#"
-    alt : Pengin News
-    title : Pengin News
+heading : 作ってきたもの
+productItems :
+  - title : ペンギンニュース 
+    imagePath : images/products/pengin-news.jpg
+    alt : ペンギンニュースの画面
     content : まとめサイト
+    tags:
+      - PHP
+    url : null
 
-  - imagePath : images/work/coinstep.jpg
-    url : https://coin-step.com/
-    alt : Coin Step
-    title : Coin Step
+  - title : Coin Step
+    imagePath : images/products/coin-step.jpg
     content : 仮想通貨のヴァーチャルトレードサービス
+    tags:
+      - Go
+      - Vue
+      - TypeScript
+    alt : Coin Stepの画面
+    url : https://coin-step.com/
+    linkTitle : https://coin-step.com/

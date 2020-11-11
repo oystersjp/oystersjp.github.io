@@ -1,32 +1,45 @@
-{{ if .Site.Data.work.enable}}
-{{"<!-- work -->" | safeHTML }}
-<section id="works" class="bg-one section">
+{{ if .Site.Data.products.enable }}
+<section id="products" class="section">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                {{"<!-- section title -->" | safeHTML }}
-                <div class="title text-center wow fadeIn" data-wow-duration="500ms">
-                    <h2><span class="color">{{ with .Site.Data.work.headingSpan }} {{ . }} {{ end }}</span></h2>
+		<div class="row justify-content-center">
+			<div class="col-lg-12">
+				<div class="title text-center wow fadeInDown">
+                    <h2>{{ .Site.Data.products.heading }}</h2>
                     <div class="border-meghna"></div>
                 </div>
             </div>
-            {{"<!-- /section title -->" | safeHTML }}
 
-            {{ range .Site.Data.work.workItem }}
-                {{"<!-- Single Work Item -->" | safeHTML }}
-                <article class="col-lg-6 col-md-6 col-12 wow fadeInUp" data-wow-duration="500ms">
-                    <a href={{ .url }} target="_blank">
-                        <div class="work-block text-center">
-                            <img class="img-fluid" src="{{ .imagePath }}" alt="{{ .alt }}">
-                            <h3>{{ .title }}</h3>
-                            <p>{{ .content }}</p>
+            {{ range .Site.Data.products.productItems }}
+                <article class="col-lg-4 col-md-6 col-12 clearfix wow fadeInUp mb-4" data-wow-duration="500ms">
+                    <div class="post-block">
+                        <div class="media-wrapper">
+                            {{- $image := resources.Get .imagePath -}}
+                            <img class="img-fluid lozad" data-src="{{ ($image.Fit "600x400" | fingerprint).Permalink }}" alt="{{ .alt }}" onerror="this.onerror=null;this.src='{{ .Params.Image | absURL }}'">
                         </div>
-                    </a>
+                        <div class="content">
+                            <h3>
+                                {{ .title }}
+                                {{ if .url }}
+                                    <a href="{{ .url }}" target="_blank" rel="noreferrer noreferrer">
+                                        <span class="text-hide">{{ .title }}へ</span><i class="tf-ion-android-open"></i>
+                                    </a>
+                                {{ end }}
+                            </h3>
+                            <p>
+                                {{ .content }}
+                                {{ if .tags }}
+                                    <span class="d-block mt-2">
+                                        {{ range .tags }}
+                                            <span class="badge badge-secondary">{{ . }}</span>
+                                        {{ end }}
+                                    </span>
+                                {{ end }}
+                            </p>
+                        </div>
+                    </div>
                 </article>
-                {{"<!-- End Single Work Item -->" | safeHTML }}
             {{ end }}
         </div>
     </div>
 </section>
-{{"<!-- /work -->" | safeHTML }}
 {{ end }}
