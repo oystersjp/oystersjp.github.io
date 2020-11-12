@@ -1,18 +1,21 @@
 {{ if .Site.Data.about.enable }}
 {{ with .Site.Data.about }}
     {{"<!-- Start Oyster Section -->" | safeHTML}}
-    <section class="section section-bg"></section>
+    <div class="section section-bg"></div>
     {{"<!-- /Oyster Section -->" | safeHTML}}
     <section class="section about-2 padding-0" id="about">
         <div class="container-fluid">
             <div class="row">
-                {{- $image := ((resources.Get .bgImage).Fill "600x590 Center" | fingerprint).Permalink -}}
-                <div class="col-lg-6 padding-0" style="background-image: url('{{ $image }}'); background-size: cover; background-position: top center; background-repeat: no-repeat; min-height: 400px;">
-                    <!-- this image is for trigger this section fallback background image -->
-                    <img src="{{ $image }}" style="display: none;" onerror="this.onerror=null;this.parentElement.style.backgroundImage= 'url({{ .image | absURL }})'">
+                <div class="col-lg-6 padding-0 about-slide js-about-slide">
+                    {{ $slideDir := .slideDir }}
+                    {{ range readDir (path.Join "assets" $slideDir) }}
+                        <!-- this image is for trigger this section fallback background image -->
+                        {{- $image := ((resources.Get (path.Join $slideDir .Name)).Fill "600x400 Center" | fingerprint).Permalink -}}
+                        <div class="about-slide__item"><img src="{{ $image | absURL }}"></div>
+                    {{ end }}
                 </div>
                 <div class="col-lg-6">
-                    <div class="content-block">
+                    <div class="content-block js-about-content-block">
                         <h2>{{ .title | markdownify }}</h2>
                         <p>{{ .content | markdownify }}</p>
                         <div class="row">
@@ -39,7 +42,7 @@
     </section>
     {{"<!-- /about -->" | safeHTML}}
     {{"<!-- Start Oyster Section -->" | safeHTML}}
-    <section class="section section-bg"></section>
+    <div class="section section-bg"></div>
     {{"<!-- /Oyster Section -->" | safeHTML}}
 {{ end }}
 {{ end }}

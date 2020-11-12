@@ -1,7 +1,7 @@
 enable : true
 title : 若手ものづくり集団 Oysters
 content : Play With Us!!をモットーに活動する若手(?)エンジニアの集団です
-bgImage : /images/about/oysters.jpg
+slideDir : images/about/slide
 aboutItems :
 - title : We Are Junior Creators
   content : 50名の若手エンジニアの集いです
