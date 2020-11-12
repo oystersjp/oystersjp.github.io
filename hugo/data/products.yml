@@ -7,6 +7,7 @@ productItems :
     content : まとめサイト
     tags:
       - PHP
+      - Laravel
     url : null
 
   - title : Coin Step
