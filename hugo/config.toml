@@ -43,7 +43,7 @@ author = "Oysters"
 ogTitle = "Oysters"
 ogType = "article"
 ogUrl = "https://oystersjp.github.io/"
-ogImage = "images/slider/hero-area.jpg"
+ogImage = "images/ogp.jpg"
 
 # Google Analitycs
 googleAnalitycsID = "Your ID"
