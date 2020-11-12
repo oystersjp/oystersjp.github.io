@@ -17,7 +17,7 @@ publishDir = "../public"
 # Menu
 [menu]
     [[menu.nav]]
-    name = "Oysters?"
+    name = "Oystersとは"
     URL = "about"
     weight = 2
 
