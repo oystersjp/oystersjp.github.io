@@ -52,7 +52,7 @@ custom_css = ["css/custom.css"]
     # Banner Section
     [params.banner]
     enable = true
-    bgImage = "images/slider/hero-area.jpg"
+    bgImage = "images/hero-area/bg.jpg"
     icon = ""
     heading = "Play With Us!!"
     content= "若手ものづくり集団"
