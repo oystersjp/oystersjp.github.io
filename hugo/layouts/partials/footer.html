@@ -53,7 +53,7 @@
 		{{"<!-- Sweet Alert -->" | safeHTML}}
 		<script type="text/javascript" src="{{ "plugins/sweet-alert/sweetalert.min.js" | absURL}}"></script>
 		{{"<!-- Custom js -->" | safeHTML}}
-		{{ $script := resources.Get "js/script.js" | minify}}
+		{{ $script := resources.Get "js/script.js" | minify | fingerprint }}
 		<script src="{{ $script.Permalink }}"></script>
 		{{ "<!-- google analitycs -->" | safeHTML }}
 		{{"<!-- Scroll behavior polyfill -->" | safeHTML}}

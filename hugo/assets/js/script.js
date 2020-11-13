@@ -67,15 +67,34 @@ jQuery(function ($) {
   }
 
   /* ========================================================================= */
-  /*	Testimonial Carousel
+  /*	About Carousel
 	/* =========================================================================  */
 
-  $("#testimonials").slick({
-    infinite: true,
-    arrows: false,
-    autoplay: true,
-    autoplaySpeed: 4000,
-  });
+  (($) => {
+    const slideEl = $(".js-about-slide");
+    const contentBlockEl = $(".js-about-content-block");
+    const breakpoint = 992;
+
+    const resize = () => {
+      const windowWidth = window.outerWidth;
+      const height = windowWidth >= breakpoint
+        ? contentBlockEl.outerHeight()
+        : '50vw';
+      slideEl.find('.slick-slide').css('height', height);
+    };
+
+    slideEl
+      .on("init", resize)
+      .on("breakpoint", resize);
+    slideEl.slick({
+      infinite: true,
+      arrows: false,
+      autoplay: true,
+      fade: true,
+      autoplaySpeed: 3000,
+      responsive: [{ breakpoint }],
+    });
+  })($);
 
   /* ========================================================================= */
   /*	animation scroll js

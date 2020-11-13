@@ -17,7 +17,7 @@ publishDir = "../public"
 # Menu
 [menu]
     [[menu.nav]]
-    name = "Oystersとは？"
+    name = "Oystersとは"
     URL = "about"
     weight = 2
 
@@ -43,7 +43,7 @@ author = "Oysters"
 ogTitle = "Oysters"
 ogType = "article"
 ogUrl = "https://oystersjp.github.io/"
-ogImage = "images/slider/hero-area.jpg"
+ogImage = "images/ogp.jpg"
 
 # Google Analitycs
 googleAnalitycsID = "Your ID"
@@ -52,23 +52,13 @@ custom_css = ["css/custom.css"]
     # Banner Section
     [params.banner]
     enable = true
-    bgImage = "images/slider/hero-area.jpg"
+    bgImage = "images/hero-area/bg.jpg"
     icon = ""
     heading = "Play With Us!!"
     content= "若手ものづくり集団"
     btn = false
     btnText="Explore Us"
     btnURL="#services"
-
-    # oyster
-    [params.oyster]
-    enable = true
-    bgImage = "images/backgrounds/oyster.jpg"
-
-    # bus
-    [params.bus]
-    enable = true
-    bgImage = "images/backgrounds/bus.jpg"
 
     # footer
     [params.footer]
