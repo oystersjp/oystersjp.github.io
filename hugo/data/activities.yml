@@ -1,5 +1,5 @@
 enable : true
-headingSpan : 活動内容
+heading : 活動内容
 activityItems :
   - title : Learning Tech Skills
     imagePath : /images/activities/study.jpg
