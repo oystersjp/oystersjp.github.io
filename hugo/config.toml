@@ -19,6 +19,11 @@ publishDir = "../public"
     [[menu.nav]]
     name = "Oystersとは"
     URL = "about"
+    weight = 1
+
+    [[menu.nav]]
+    name = "メンバー"
+    URL = "team"
     weight = 2
 
     [[menu.nav]]
