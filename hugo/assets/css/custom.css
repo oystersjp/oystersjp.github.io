@@ -50,6 +50,21 @@
 }
 
 /*=================================================================
+  Contact section
+==================================================================*/
+
+.call-to-action .call-to-action__content {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 3rem 2rem;
+}
+
+.call-to-action .call-to-action__content h2,
+.call-to-action .call-to-action__content p {
+  color: currentColor;
+}
+
+/*=================================================================
 =======
   Copyright
 ==================================================================*/
