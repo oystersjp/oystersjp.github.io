@@ -14,11 +14,19 @@ publishDir = "../public"
 [minify]
   disableSVG = true
 
+[markup.goldmark.renderer]
+  unsafe = true
+
 # Menu
 [menu]
     [[menu.nav]]
     name = "Oystersとは"
     URL = "about"
+    weight = 1
+
+    [[menu.nav]]
+    name = "メンバー"
+    URL = "team"
     weight = 2
 
     [[menu.nav]]
