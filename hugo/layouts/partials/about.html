@@ -17,7 +17,8 @@
                 <div class="col-lg-6">
                     <div class="content-block js-about-content-block">
                         <h2>{{ .title | markdownify }}</h2>
-                        <p>{{ .content | markdownify }}</p>
+                        <p>{{ .introduction | markdownify }}</p>
+                        <p>{{ .philosophy | markdownify }}</p>
                         <div class="row">
                             {{ range .aboutItems }}
                             <div class="col-lg-6">
