@@ -1,6 +1,7 @@
 enable : true
 title : 若手ものづくり集団 Oysters
-content : Play With Us!!をモットーに活動する若手(?)エンジニアの集団です
+introduction : Play With Us!!をモットーに活動する若手(?)エンジニアの集団です。
+philosophy: Play With Us!!には「Oystersはどんなことでも楽しければ目的達成！」という意味が込められています。
 slideDir : images/about/slide
 aboutItems :
 - title : We Are Junior Creators
