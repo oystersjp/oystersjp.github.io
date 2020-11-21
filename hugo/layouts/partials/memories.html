@@ -1,0 +1,26 @@
+{{ if .Site.Data.memories.enable }}
+<section id="memories" class="section">
+    <div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-12">
+				<div class="title text-center wow fadeInDown">
+                    <h2>{{ .Site.Data.memories.heading }}</h2>
+                    <div class="border-meghna"></div>
+                </div>
+            </div>
+
+            {{ range .Site.Data.memories.memoryItems }}
+                <article class="col-lg-4 clearfix wow fadeInUp " data-category="{{ .types }}">
+                    <div class="post-block mb-4">
+                        <div class="media-wrapper">
+                            {{- $image := resources.Get .imagePath -}}
+                            <img class="img-fluid lozad" data-src="{{ ($image.Fit "720x540" | fingerprint).Permalink }}" alt="{{ .alt }}" onerror="this.onerror=null;this.src='{{ .Params.Image | absURL }}'">
+                        </div>
+                    </div>
+                </article>
+            {{ end }}
+
+        </div>
+    </div>
+</section>
+{{ end }}

@@ -39,6 +39,11 @@ publishDir = "../public"
     URL = "products"
     weight = 4
 
+    [[menu.nav]]
+    name = "思い出"
+    URL = "memories"
+    weight = 5
+
 # Site params
 [params]
 home= "Home"
