@@ -14,7 +14,7 @@
                     <div class="post-block mb-4">
                         <div class="media-wrapper">
                             {{- $image := resources.Get .imagePath -}}
-                            <img class="img-fluid lozad" data-src="{{ ($image | fingerprint).Permalink }}" alt="{{ .alt }}" onerror="this.onerror=null;this.src='{{ .Params.Image | absURL }}'">
+                            <img class="img-fluid lozad" data-src="{{ ($image.Fit "700x525" | fingerprint).Permalink }}" alt="{{ .alt }}" onerror="this.onerror=null;this.src='{{ .Params.Image | absURL }}'">
                         </div>
                     </div>
                 </article>
