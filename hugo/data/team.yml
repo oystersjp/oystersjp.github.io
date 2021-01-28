@@ -55,3 +55,9 @@ team_member:
 
   - name: zundamaru
     image: /images/team/zundamaru.png
+
+  - name: Sorarinu
+    image: /images/team/sorarinu.jpg
+    twitter: int_sorarinu
+    github: Sorarinu
+    website: https://sorarinu.dev
