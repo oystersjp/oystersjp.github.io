@@ -1,7 +1,7 @@
-import { getAllMembers, getMemberByFileNames } from '../lib/members'
+import { getAllMembers, getMemberByFileNames } from '@/lib/members'
 
 import Head from 'next/head'
-import MemberList from '../components/MemberList'
+import MemberList from '@/components/MemberList'
 import { GetStaticProps } from 'next'
 
 const organizationName = 'Oysters'
