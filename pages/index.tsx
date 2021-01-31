@@ -1,5 +1,8 @@
+import { getAllMembers, getMemberByFileNames } from '../lib/members'
+
 import Head from 'next/head'
 import MemberList from '../components/MemberList'
+import { GetStaticProps } from 'next'
 
 const organizationName = 'Oysters'
 const organizationDescription = '若手ものづくり集団 Oysters'
@@ -20,8 +23,10 @@ const metaList = [
   { name: 'viewport', content: 'width=device-width, initial-scale=1' }
 ]
 
-export default function Home(): JSX.Element {
+export default function Home({ members }: { members: string[] }): JSX.Element {
+  const memberList = getMemberByFileNames(members)
   const title = `${organizationName} | ${organizationDescription}`
+
   return (
     <>
       <Head>
@@ -43,8 +48,12 @@ export default function Home(): JSX.Element {
           />
         ))}
       </Head>
-
-      <MemberList />
+      <MemberList memberList={memberList} />
     </>
   )
+}
+
+// This also gets called at build time
+export const getStaticProps: GetStaticProps = async () => {
+  return { props: { members: getAllMembers() } }
 }

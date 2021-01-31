@@ -19,7 +19,7 @@ module.exports = {
   plugins: ['prettier', 'react', '@typescript-eslint'],
   rules: {
     'prettier/prettier': 'error',
-    'space-before-function-paren': ['error', 'never'],
+    'space-before-function-paren': 'off',
     'react/react-in-jsx-scope': 'off'
   },
   settings: {
