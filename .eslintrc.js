@@ -23,6 +23,8 @@ module.exports = {
     'react/react-in-jsx-scope': 'off'
   },
   settings: {
-    version: 'detect'
+    react: {
+      version: 'detect'
+    }
   }
 }
