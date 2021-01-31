@@ -1,23 +1,10 @@
-// TODO: ファイルから読み込む
-const memberList = [
-  {
-    name: 'Oyster Taro',
-    image: '/images/ogp.jpg',
-    twitter: 'twitter',
-    github: 'oystersjp',
-    website: 'http://oystersjp.github.io'
-  },
-  {
-    name: 'Oyster Hanako',
-    image: '/images/ogp.jpg',
-    twitter: 'twitter',
-    github: 'oystersjp',
-    website: 'http://oystersjp.github.io'
-  }
-]
+import { Member } from '../../types/Member'
 
-// TODO: memberListをpropsで受け取る
-export function MemberList(): JSX.Element {
+export function MemberList({
+  memberList
+}: {
+  memberList: Member[]
+}): JSX.Element {
   return (
     <section id="team" className="section">
       <div className="container">
