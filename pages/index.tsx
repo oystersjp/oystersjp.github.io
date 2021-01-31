@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import MemberList from '../components/MemberList'
 
 const organizationName = 'Oysters'
 const organizationDescription = '若手ものづくり集団 Oysters'
@@ -42,6 +43,8 @@ export default function Home(): JSX.Element {
           />
         ))}
       </Head>
+
+      <MemberList />
     </>
   )
 }
