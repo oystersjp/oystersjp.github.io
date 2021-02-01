@@ -1,4 +1,4 @@
-import { Member } from '../../types/Member'
+import { Member } from '@/types/Member'
 
 export function MemberList({
   memberList
