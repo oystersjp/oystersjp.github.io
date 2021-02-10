@@ -39,25 +39,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 以下にメンバーの追加手順を記します。
 
-1. `content/members`に新しく追加したいメンバーの名前のtsファイルを追加する。
-    ```bash
-    $ touch content/members/your-name.ts
-    ```
 
-2. 作成したファイルを以下を参考に編集する。
-
-    ```TypeScript
-    /* your-name.ts */
-    export default {
-    name: 'your-name',
-    image: '/images/members/your-name.jpg', // Upload your img at /images/members
-
-    // Fill below. (Delete these properties if you don't need.) 
-    twitter: 'your-twitter-id', 
-    github: 'your-github-name',
-    website: 'https://example.com/'
-    }
-    ```
-
-3. `images/members`にご自身の写真データを追加する。
-4. 別ブランチを切ってコミットし、PRを作成してレビュー依頼（誰でもOK）
+1. `images/members`にご自身の写真データを追加する。
+2. コマンド `npm run add-member` を実行し、質問に沿ってコマンドラインに入力していく。
+3. `content/members` 以下に追加したいメンバーの名前のついたtsファイルが存在しているか確認する。
+4. 別ブランチを切ってコミットし、PRを作成してレビュー依頼する。（誰でもOK）
