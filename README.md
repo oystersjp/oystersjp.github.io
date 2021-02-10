@@ -32,3 +32,32 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+
+## メンバーの追加方法
+
+以下にメンバーの追加手順を記します。
+
+1. `content/members`に新しく追加したいメンバーの名前のtsファイルを追加する。
+    ```bash
+    $ touch content/members/your-name.ts
+    ```
+
+2. 作成したファイルを以下を参考に編集する。
+
+    ```TypeScript
+    /* your-name.ts */
+    export default {
+    name: 'your-name',
+    image: '/images/members/your-name.jpg', // Upload your img at /images/members
+
+    // Fill below. (Delete these properties if you don't need.) 
+    twitter: 'your-twitter-id', 
+    github: 'your-github-name',
+    website: 'https://example.com/'
+    }
+    ```
+
+3. `images/members`にご自身の写真データを追加する。
+4. 別ブランチを切ってコミットし、PRを作成してレビュー依頼（誰でもOK）
