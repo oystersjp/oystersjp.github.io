@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext ts,tsx,js,jsx"
+    "lint": "eslint . --ext ts,tsx,js,jsx",
+    "add-member": "npx hygen gen intro"
   },
   "dependencies": {
     "next": "10.0.6",
