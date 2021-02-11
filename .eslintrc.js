@@ -17,6 +17,14 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['prettier', 'react', '@typescript-eslint'],
+  overrides: [
+    {
+      files: ['**/*.tsx'],
+      rules: {
+        'react/prop-types': 'off'
+      }
+    }
+  ],
   rules: {
     'prettier/prettier': 'error',
     'space-before-function-paren': 'off',
