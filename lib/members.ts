@@ -1,16 +1,8 @@
+import { importAll } from '@/lib/importAll'
 import { Member } from '@/types/Member'
 
-export function getMemberByFileNames(fileNames: string[]): Member[] {
-  return fileNames.map((name) => {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const content = require(`@/content/members/${name}`).default
-    return content
-  })
-}
-
-export function getAllMembers(): string[] {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const context = require.context('@/content/members', true, /\.ts$/)
-  return context.keys().map((path) => path.replace(/^.*?\/(.*?)\..*$/, '$1'))
+export function getAllMembers(): Promise<Member[]> {
+  // refs: https://webpack.js.org/guides/dependency-management/#context-module-api
+  const context = require.context('@/content/members', false, /.ts$/)
+  return importAll<Member>(context)
 }
