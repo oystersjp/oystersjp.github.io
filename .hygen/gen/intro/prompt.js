@@ -5,7 +5,7 @@ module.exports = [
   {
     type: 'input',
     name: 'name',
-    message: "What's your name?",
+    message: '登録したいお名前を入力してください。',
     validate: (answer /* string */) => {
       return answer !== '' ? true : '名前は必須項目です。入力してください。'
     }
@@ -13,16 +13,16 @@ module.exports = [
   {
     type: 'input',
     name: 'twitter',
-    message: "What's your twitter account ID?"
+    message: 'twitterアカウントのIDを入力してください。'
   },
   {
     type: 'input',
     name: 'github',
-    message: "What's your github account?"
+    message: 'githubアカウント名を入力してください。'
   },
   {
     type: 'input',
     name: 'website',
-    message: "What's your website URL?"
+    message: 'websiteのURLを入力してください。'
   }
 ]
