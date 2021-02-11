@@ -1,4 +1,5 @@
 import { Member } from '@/types/Member'
+import SocialAccountList from './SocialAccountList'
 
 export function MemberList({ members }: { members: Member[] }): JSX.Element {
   return (
@@ -42,41 +43,7 @@ export function MemberList({ members }: { members: Member[] }): JSX.Element {
                   >
                     {member.name}
                   </h4>
-
-                  {/* TODO: linkの配列を分離 */}
-                  {(member.twitter || member.github || member.website) && (
-                    <ul className="list-inline mt-2 mb-0" role="group">
-                      {[
-                        {
-                          href: `https://twitter.com/${member.twitter}`,
-                          title: 'twitter',
-                          icon: 'tf-ion-social-twitter'
-                        },
-                        {
-                          href: `https://github.com/${member.github}`,
-                          title: 'Github',
-                          icon: 'tf-ion-social-github'
-                        },
-                        {
-                          href: member.website,
-                          title: 'ウェブサイト',
-                          icon: 'tf-ion-ios-world'
-                        }
-                      ].map((link) => (
-                        <li key={link.href} className="list-inline-item">
-                          <a
-                            href={link.href}
-                            className="btn btn-outline-dark py-0 px-1"
-                            title={link.title}
-                            rel="noreferrer noreferrer"
-                            target="_blank"
-                          >
-                            <i className={link.icon} />
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                  <SocialAccountList member={member} />
                 </div>
               </div>
             </div>
