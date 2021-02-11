@@ -8,5 +8,3 @@ export default {
   github: '<%= github %>',
   website: '<%= website %>'
 }
-
-
