@@ -43,3 +43,23 @@ jobs:
     - run: npm ci     
     - run: npm run lint
       name: Run lint
+
+  deploy:
+    name: deploy
+    needs: [build, lint]
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.15.4]
+
+    steps:
+    - uses: actions/checkout@v2
+      name: Check out repository code
+    - uses: actions/setup-node@v1 
+      name: Use Node.js ${{ matrix.node-version }}
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci     
+    - run: npm run deploy # build時間が長くなってきたらdeploy scriptにbuildを含めないでartifact経由で取得するように変更する
+      name: Run deploy   
