@@ -44,32 +44,27 @@ jobs:
       name: Run lint
     - run: npm run lint
 
-  # Netlify:
-  #     name: NetlifyDeploy
-  #     runs-on: ubuntu-latest
-  #     needs: [build]
+  Netlify:
+      name: Deploy to Netlify 
+      runs-on: ubuntu-latest
+      needs: [build]
 
-  #     strategy:
-  #       matrix:
-  #         node-version: [14.15.4]
+      strategy:
+        matrix:
+          node-version: [14.15.4]
 
-  #     steps:
-  #     - name: Deploy to Netlify
-  #     - uses: actions/checkout@v2
-  #     - name: Use Node.js ${{ matrix.node-version }}
-  #       uses: actions/setup-node@v1
-  #       with:
-  #         node-version: ${{ matrix.node-version }}
-  #     - run: npm ci           
-  #     - run: npm run build
-  #     - uses: nwtgck/actions-netlify@v1.0
-  #       with:
-  #         publish-dir: './out'
-  #         production-branch: master
-  #         github-token: ${{ secrets.GITHUB_TOKEN }}
-  #       env:
-  #         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-  #         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}  
-
-        
-
+      steps:
+      - uses: actions/checkout@v2
+        name: Use Node.js ${{ matrix.node-version }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci           
+      - run: npm run build
+      - uses: nwtgck/actions-netlify@v1.0
+        with:
+          publish-dir: './out'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
