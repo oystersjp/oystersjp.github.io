@@ -16,13 +16,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      name: Check out repository code
+    - uses: actions/setup-node@v1 
       name: Use Node.js ${{ matrix.node-version }}
-    - uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci
-      name: Run build
+    - run: npm ci     
     - run: npm run build
+      name: Run build
 
   lint:
     name: Lint
@@ -34,10 +35,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      name: Check out repository code
+    - uses: actions/setup-node@v1 
       name: Use Node.js ${{ matrix.node-version }}
-    - uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci            
-      name: Run lint
+    - run: npm ci     
     - run: npm run lint
+      name: Run lint

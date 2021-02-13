@@ -17,13 +17,22 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      name: Check out repository code
+    - uses: actions/setup-node@v1 
       name: Use Node.js ${{ matrix.node-version }}
-    - uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci     
-      name: Run build
     - run: npm run build
+      name: Run build
+    - uses: nwtgck/actions-netlify@v1.0     
+      name: deploy to netlify 
+      with:
+        publish-dir: './out'
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}      
 
 
   lint:
@@ -36,35 +45,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      name: Check out repository code
+    - uses: actions/setup-node@v1 
       name: Use Node.js ${{ matrix.node-version }}
-    - uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci            
-      name: Run lint
+    - run: npm ci     
     - run: npm run lint
-
-  Netlify:
-      name: Deploy to Netlify 
-      runs-on: ubuntu-latest
-      needs: [build]
-
-      strategy:
-        matrix:
-          node-version: [14.15.4]
-
-      steps:
-      - uses: actions/checkout@v2
-        name: Use Node.js ${{ matrix.node-version }}
-      - uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm ci           
-      - run: npm run build
-      - uses: nwtgck/actions-netlify@v1.0
-        with:
-          publish-dir: './out'
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      name: Run lint
