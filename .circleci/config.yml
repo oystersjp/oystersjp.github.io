@@ -1,0 +1,7 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run: echo "Github Actionsへ移行予定のため、Next.jsへのリプレイスが完了後CircleCIは使用できなくなります。" 
