@@ -22,7 +22,14 @@ jobs:
       name: Use Node.js ${{ matrix.node-version }}
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci     
+    - uses: actions/cache@preview
+      name: Cache ~/.npm/ 
+      with:
+        path: '~/.npm/'
+        key: ${{ runner.os }}-projectname-${{ hashFiles(format('{0}{1}', github.workspace, 'package-lock.json')) }}
+        restore-keys:
+          ${{ runner.os }}-projectname-             
+    - run: npm ci  
     - run: npm run build
       name: Run build
     - uses: nwtgck/actions-netlify@v1.0     
@@ -33,7 +40,6 @@ jobs:
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}      
-
 
   lint:
     name: Lint
@@ -50,6 +56,13 @@ jobs:
       name: Use Node.js ${{ matrix.node-version }}
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci     
+    - uses: actions/cache@preview
+      name: Cache ~/.npm/ 
+      with:
+        path: '~/.npm/'
+        key: ${{ runner.os }}-projectname-${{ hashFiles(format('{0}{1}', github.workspace, 'package-lock.json')) }}
+        restore-keys:
+          ${{ runner.os }}-projectname-             
+    - run: npm ci
     - run: npm run lint
       name: Run lint
