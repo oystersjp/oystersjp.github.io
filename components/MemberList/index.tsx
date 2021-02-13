@@ -1,10 +1,6 @@
 import { Member } from '@/types/Member'
 
-export function MemberList({
-  memberList
-}: {
-  memberList: Member[]
-}): JSX.Element {
+export function MemberList({ members }: { members: Member[] }): JSX.Element {
   return (
     <section id="team" className="section">
       <div className="container">
@@ -21,7 +17,7 @@ export function MemberList({
             </div>
           </div>
 
-          {memberList.map((member) => (
+          {members.map((member) => (
             <div
               key={member.name}
               className="col-lg-4 col-md-4 col-12 wow fadeInDown mb-2"
