@@ -5,6 +5,8 @@ on:
     branches: 
     - '**' 
     - '!master'
+    - '!gh-pages'
+    - '!develop/gh-pages' # for predeploy script
 
 jobs:
   build:
@@ -66,3 +68,27 @@ jobs:
     - run: npm ci
     - run: npm run lint
       name: Run lint
+
+  predeploy:
+    name: predeploy (動作確認後削除する)
+    needs: [build, lint]
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.15.4]
+
+    steps:
+    - uses: actions/checkout@v2
+      name: Check out repository code
+    - uses: actions/setup-node@v1 
+      name: Use Node.js ${{ matrix.node-version }}
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci     
+    - run: npm run build # build時間が長くなってきたらdeploy scriptにbuildを含めないでartifact経由で取得するように変更する
+    - uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: develop/gh-pages
+        publish_dir: ./out   
