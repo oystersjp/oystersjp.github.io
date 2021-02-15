@@ -21,9 +21,24 @@ jobs:
       name: Use Node.js ${{ matrix.node-version }}
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci     
+    - uses: actions/cache@preview
+      name: Cache ~/.npm/ 
+      with:
+        path: '~/.npm/'
+        key: ${{ runner.os }}-projectname-${{ hashFiles(format('{0}{1}', github.workspace, 'package-lock.json')) }}
+        restore-keys:
+          ${{ runner.os }}-projectname-             
+    - run: npm ci  
     - run: npm run build
       name: Run build
+    - uses: nwtgck/actions-netlify@v1.0     
+      name: deploy to netlify 
+      with:
+        publish-dir: './out'
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}      
 
   lint:
     name: Lint
@@ -40,12 +55,19 @@ jobs:
       name: Use Node.js ${{ matrix.node-version }}
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci     
+    - uses: actions/cache@preview
+      name: Cache ~/.npm/ 
+      with:
+        path: '~/.npm/'
+        key: ${{ runner.os }}-projectname-${{ hashFiles(format('{0}{1}', github.workspace, 'package-lock.json')) }}
+        restore-keys:
+          ${{ runner.os }}-projectname-             
+    - run: npm ci
     - run: npm run lint
       name: Run lint
 
   deploy:
-    name: deploy
+    name: predeploy (動作確認後削除する)
     needs: [build, lint]
     runs-on: ubuntu-latest
 
@@ -60,6 +82,16 @@ jobs:
       name: Use Node.js ${{ matrix.node-version }}
       with:
         node-version: ${{ matrix.node-version }}
+    - uses: actions/cache@preview
+      name: Cache ~/.npm/ 
+      with:
+        path: '~/.npm/'
+        key: ${{ runner.os }}-projectname-${{ hashFiles(format('{0}{1}', github.workspace, 'package-lock.json')) }}
+        restore-keys:
+          ${{ runner.os }}-projectname-           
     - run: npm ci     
-    - run: npm run deploy # build時間が長くなってきたらdeploy scriptにbuildを含めないでartifact経由で取得するように変更する
-      name: Run deploy   
+    - run: npm run build # build時間が長くなってきたらdeploy jobにbuildを含めないでartifact経由で取得するように変更する
+    - uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./out   
