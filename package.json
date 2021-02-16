@@ -42,5 +42,6 @@
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix"
     ]
-  }
+  },
+  "homepage": "https://oystersjp.github.io/"
 }
