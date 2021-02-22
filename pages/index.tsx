@@ -4,6 +4,7 @@ import MemberList from '@/components/MemberList'
 import { GetStaticProps } from 'next'
 import { Member } from '@/types/Member'
 import { getAllMembers } from '@/lib/members'
+import Hero from '@/components/Hero'
 const organizationName = 'Oysters'
 const organizationDescription = '若手ものづくり集団 Oysters'
 const siteUrl = 'https://oystersjp.github.io'
@@ -48,6 +49,7 @@ export default function Home({ members }: { members: Member[] }): JSX.Element {
         ))}
       </Head>
       <Navbar />
+      <Hero />
       <MemberList members={members} />
     </>
   )
