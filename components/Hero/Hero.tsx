@@ -1,6 +1,4 @@
-import { FC } from 'react'
-
-const Hero: FC = () => (
+const Hero: React.FC = () => (
   <section
     className="hero-area"
     style={{ backgroundImage: "url('/images/hero-bg.jpg')" }}
