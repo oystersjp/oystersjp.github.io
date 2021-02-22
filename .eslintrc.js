@@ -28,7 +28,19 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     'space-before-function-paren': 'off',
-    'react/react-in-jsx-scope': 'off'
+    'react/react-in-jsx-scope': 'off',
+    'no-restricted-imports': [
+      'error',
+      {
+        paths: [
+          {
+            name: 'react',
+            importNames: ['FC'],
+            message: 'Please use `React.FC` instead of `FC`.'
+          }
+        ]
+      }
+    ]
   },
   settings: {
     react: {

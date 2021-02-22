@@ -1,5 +1,5 @@
 import { Member } from '@/types/Member'
-import { FC, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 
 const useSocialAccountLinks = ({ twitter, github, website }: Member) => {
   const [links, setLinks] = useState<
@@ -41,7 +41,9 @@ const useSocialAccountLinks = ({ twitter, github, website }: Member) => {
   return links
 }
 
-export const SocialAccountMemberList: FC<{ member: Member }> = ({ member }) => {
+export const SocialAccountMemberList: React.FC<{ member: Member }> = ({
+  member
+}) => {
   const socialAccountLinks = useSocialAccountLinks(member)
 
   if (socialAccountLinks.length === 0) {
