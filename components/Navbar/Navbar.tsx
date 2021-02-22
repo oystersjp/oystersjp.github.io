@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { useState } from 'react'
 import { PAGES } from '@/components/Navbar/constants'
 import Logo from '@/components/Logo'
 
@@ -10,7 +10,7 @@ const usePages = (): Array<{
   return [...PAGES].sort((a, b) => (a.weight < b.weight ? -1 : 1))
 }
 
-const Nav: FC = () => {
+const Nav: React.FC = () => {
   const pages = usePages()
   const [isExpanded, toggleNavigation] = useState(false)
 
