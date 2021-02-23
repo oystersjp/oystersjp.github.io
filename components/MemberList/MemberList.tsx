@@ -25,11 +25,8 @@ export function MemberList({ members }: { members: Member[] }): JSX.Element {
               data-wow-duration="500ms"
             >
               <div className="team-member media p-3">
-                {/* TODO: inlineCSSをやめる */}
-                {/* TODO: next/imageを使う */}
                 <img
-                  src={member.image}
-                  style={{ objectFit: 'cover' }}
+                  src={require(`@/public${member.image}?width=144&height=144`)}
                   className="border rounded-circle align-self-center lozad mr-3"
                   width={72}
                   height={72}
