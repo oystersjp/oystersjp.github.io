@@ -3,7 +3,7 @@ to: content/members/<%= name %>.ts
 ---
 export default {
   name: '<%= name %>',
-  image: '/images/members/<%= name %>.jpg',
+  image: '',
   twitter: '<%= twitter %>',
   github: '<%= github %>',
   website: '<%= website %>'
