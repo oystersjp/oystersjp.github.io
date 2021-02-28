@@ -43,3 +43,25 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 2. コマンド `npm run add-member` を実行し、質問に沿ってコマンドラインに入力していく。
 3. `content/members` 以下に追加したいメンバーの名前のついたtsファイルが存在しているか内容も含めて確認する。
 4. 別ブランチを切ってコミットし、PRを作成してレビュー依頼する。（誰でもOK）
+## 画像の最適化方法について
+
+[cyrilwanner/next-optimized-images@canary](https://github.com/cyrilwanner/next-optimized-images/tree/canary)を使った画像リサイズ/圧縮ができます。
+
+```tsx
+<img
+  src={require(`@/public${member.image}?width=144&height=144`)}
+  width={72}
+  height={72}
+/>
+
+/**
+ * 結果:
+ * <img src="data:image/jpeg;base64,/9..." width="72" height="72">
+ */
+```
+
+**注意:**
+- 画像パスは動的に設定できますが、クエリ部分に変数は使用できません。
+- 変換後の画像のサイズがある程度小さい場合は自動的にインライン画像になります（設定で変更可能）
+
+詳しい使い方は[cyrilwanner/next-optimized-images@canary](https://github.com/cyrilwanner/next-optimized-images/tree/canary)を確認してください。

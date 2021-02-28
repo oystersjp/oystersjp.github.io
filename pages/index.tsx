@@ -1,9 +1,10 @@
-import { getAllMembers, getMemberByFileNames } from '@/lib/members'
-
 import Head from 'next/head'
+import Navbar from '@/components/Navbar'
 import MemberList from '@/components/MemberList'
 import { GetStaticProps } from 'next'
-
+import { Member } from '@/types/Member'
+import { getAllMembers } from '@/lib/members'
+import Hero from '@/components/Hero'
 const organizationName = 'Oysters'
 const organizationDescription = '若手ものづくり集団 Oysters'
 const siteUrl = 'https://oystersjp.github.io'
@@ -23,8 +24,7 @@ const metaList = [
   { name: 'viewport', content: 'width=device-width, initial-scale=1' }
 ]
 
-export default function Home({ members }: { members: string[] }): JSX.Element {
-  const memberList = getMemberByFileNames(members)
+export default function Home({ members }: { members: Member[] }): JSX.Element {
   const title = `${organizationName} | ${organizationDescription}`
 
   return (
@@ -48,12 +48,14 @@ export default function Home({ members }: { members: string[] }): JSX.Element {
           />
         ))}
       </Head>
-      <MemberList memberList={memberList} />
+      <Navbar />
+      <Hero />
+      <MemberList members={members} />
     </>
   )
 }
 
 // This also gets called at build time
 export const getStaticProps: GetStaticProps = async () => {
-  return { props: { members: getAllMembers() } }
+  return { props: { members: await getAllMembers() } }
 }
