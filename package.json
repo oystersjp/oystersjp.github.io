@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
-    "lint": "eslint . --ext ts,tsx,js,jsx"
+    "lint": "eslint . --ext ts,tsx,js,jsx",
+    "add-member": "npx hygen gen intro"
   },
   "dependencies": {
     "next": "10.0.6",
@@ -32,6 +33,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.22.0",
     "husky": "^4.3.8",
+    "hygen": "^6.0.4",
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
     "typescript": "^4.1.3"
