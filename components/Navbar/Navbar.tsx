@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { PAGES } from '@/components/Navbar/constants'
 import Logo from '@/components/Logo'
+import Link from 'next/link'
 
 const usePages = (): Array<{
   path: string
@@ -44,8 +45,8 @@ const Nav: React.FC = () => {
           <ul className="navbar-nav ml-auto navigation-menu">
             {pages.map((page) => (
               <li key={page.path} className="nav-item">
-                <a className="nav-link" data-scroll href={page.path}>
-                  {page.title}
+                <a className="nav-link" data-scroll>
+                  <Link href={page.path}>{page.title}</Link>
                 </a>
               </li>
             ))}
