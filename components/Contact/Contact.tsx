@@ -1,6 +1,5 @@
 const Contact: React.FC = () => (
   <section
-    id="contact"
     className="call-to-action section-sm bg-1 overly"
     style={{ backgroundImage: "url('/images/content/bg.jpeg')" }}
   >
