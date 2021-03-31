@@ -1,4 +1,4 @@
-import Activitiy from '../../types/Activity'
+import Activitiy from '@/types/Activity'
 
 const HoldingTechEvents: Activitiy = {
   title: 'Holding Tech Events',

@@ -8,9 +8,7 @@ import Hero from '@/components/Hero'
 import Footer from '@/components/Footer/Footer'
 import Contact from '@/components/Contact/Contact'
 import Activities from '@/components/Activities/Activities'
-import LearningTechSkills from '@/content/activities/LearningTechSkills'
-import HoldingTechEvents from '@/content/activities/HoldingTechEvents'
-import WritingATechBlog from '@/content/activities/WritingATechBlog'
+
 const organizationName = 'Oysters'
 const organizationDescription = '若手ものづくり集団 Oysters'
 const siteUrl = 'https://oystersjp.github.io'
@@ -29,8 +27,6 @@ const metaList = [
   { name: 'twitter:image:src', content: ogpImagePath },
   { name: 'viewport', content: 'width=device-width, initial-scale=1' }
 ]
-
-const activityList = [LearningTechSkills, HoldingTechEvents, WritingATechBlog] // note: activityの記事を追加するにはここに要素を追加する
 
 export default function Home({ members }: { members: Member[] }): JSX.Element {
   const title = `${organizationName} | ${organizationDescription}`
@@ -60,7 +56,7 @@ export default function Home({ members }: { members: Member[] }): JSX.Element {
       <Hero />
       <MemberList members={members} />
       <Contact />
-      <Activities activityList={activityList} />
+      <Activities />
       <Footer logoText={organizationName} />
     </>
   )

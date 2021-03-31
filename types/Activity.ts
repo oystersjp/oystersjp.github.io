@@ -1,8 +1,8 @@
 export default interface Activity {
-  title: string
-  imagePath: string
-  alt: string
-  content: string
-  linkTitle: string
-  url: string // note: Url Typeにする？
+  readonly title: string
+  readonly imagePath: string
+  readonly alt: string
+  readonly content: string
+  readonly linkTitle: string
+  readonly url: string // note: Url Typeにする？
 }

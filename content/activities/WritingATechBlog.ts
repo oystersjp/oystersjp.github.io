@@ -1,4 +1,4 @@
-import Activitiy from '../../types/Activity'
+import Activitiy from '@/types/Activity'
 
 const WritingATechBlog: Activitiy = {
   title: 'Writing A Tech Blog',
