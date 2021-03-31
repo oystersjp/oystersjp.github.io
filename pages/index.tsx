@@ -7,6 +7,8 @@ import { getAllMembers } from '@/lib/members'
 import Hero from '@/components/Hero'
 import Footer from '@/components/Footer/Footer'
 import Contact from '@/components/Contact/Contact'
+import Activities from '@/components/Activities/Activities'
+
 const organizationName = 'Oysters'
 const organizationDescription = '若手ものづくり集団 Oysters'
 const siteUrl = 'https://oystersjp.github.io'
@@ -54,6 +56,7 @@ export default function Home({ members }: { members: Member[] }): JSX.Element {
       <Hero />
       <MemberList members={members} />
       <Contact />
+      <Activities />
       <Footer logoText={organizationName} />
     </>
   )
