@@ -5,6 +5,7 @@ import { GetStaticProps } from 'next'
 import { Member } from '@/types/Member'
 import { getAllMembers } from '@/lib/members'
 import Hero from '@/components/Hero'
+import Memories from '@/components/Memories'
 import Footer from '@/components/Footer/Footer'
 import Contact from '@/components/Contact/Contact'
 import Activities from '@/components/Activities/Activities'
@@ -57,6 +58,7 @@ export default function Home({ members }: { members: Member[] }): JSX.Element {
       <MemberList members={members} />
       <Contact />
       <Activities />
+      <Memories />
       <Footer logoText={organizationName} />
     </>
   )
