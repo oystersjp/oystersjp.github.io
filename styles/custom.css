@@ -39,6 +39,11 @@
   About section
 ==================================================================*/
 
+#about {
+  --navbar-height: 66px;
+  scroll-margin-top: var(--navbar-height);
+}
+
 .about-slide {
   --ratio-width: 3;
   --ratio-height: 2;
