@@ -39,14 +39,39 @@
   About section
 ==================================================================*/
 
-.about-slide .about-slide__item {
-  width: 100%;
+.about-slide {
+  --ratio-width: 3;
+  --ratio-height: 2;
+
+  position: relative;
+  padding-top: calc(100% / var(--ratio-width) * var(--ratio-height))
 }
 
-.about-slide .about-slide__item img {
+@media screen and (min-width: 992px) {
+  .about-slide {
+    max-width: 100%;
+    min-height: 100%;
+  }
+}
+
+.about-slide .about-slide__item {
+  --animation-speed: 8s;
+
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   object-fit: cover;
+  visibility: hidden;
+  animation: about-slide calc(var(--animation-speed) * var(--length)) 0s infinite;
+  animation-delay: calc(var(--animation-speed) * (var(--index)));
+}
+
+@keyframes about-slide {
+  0%, 100% { opacity: 0; visibility: visible;}
+  15%, 50% { opacity: 1;}
+  65% { opacity: 0;}
 }
 
 /*=================================================================
