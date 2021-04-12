@@ -43,7 +43,10 @@ const Products: React.FC = () => {
                     {product.tags.length !== 0 && (
                       <span className="d-block mt-2">
                         {product.tags.map((tag) => (
-                          <span className="badge badge-secondary" key={tag}>
+                          <span
+                            className="badge badge-secondary products-tags"
+                            key={tag}
+                          >
                             {tag}
                           </span>
                         ))}
