@@ -9,6 +9,7 @@ import Memories from '@/components/Memories'
 import Footer from '@/components/Footer/Footer'
 import Contact from '@/components/Contact/Contact'
 import Activities from '@/components/Activities/Activities'
+import Products from '@/components/Products/Products'
 
 const organizationName = 'Oysters'
 const organizationDescription = '若手ものづくり集団 Oysters'
@@ -58,6 +59,7 @@ export default function Home({ members }: { members: Member[] }): JSX.Element {
       <MemberList members={members} />
       <Contact />
       <Activities />
+      <Products />
       <Memories />
       <Footer logoText={organizationName} />
     </>
