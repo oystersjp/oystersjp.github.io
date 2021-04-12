@@ -1,20 +1,12 @@
 import { CSSProperties } from 'react'
 import { ABOUT_ITEMS, SLIDES } from './constants'
 
-const useSlides = () => {
-  return SLIDES.map((filename) => ({
+const About: React.FC = () => {
+  const slides = SLIDES.map((filename) => ({
     key: filename,
     image: require(`${filename}?width=750&height=500`)
   }))
-}
-
-const useAboutItems = () => {
-  return ABOUT_ITEMS
-}
-
-const About: React.FC = () => {
-  const slides = useSlides()
-  const aboutItems = useAboutItems()
+  const aboutItems = ABOUT_ITEMS
 
   return (
     <>
