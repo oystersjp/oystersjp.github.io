@@ -46,9 +46,14 @@ html {
   About section
 ==================================================================*/
 
-#about {
+#about:before {
   --navbar-height: 66px;
-  scroll-margin-top: var(--navbar-height);
+
+  content: '';
+  display: block;
+  margin-top: var(--navbar-height);
+  height: var(--navbar-height);
+  visibility: hidden;
 }
 
 .about-slide {
