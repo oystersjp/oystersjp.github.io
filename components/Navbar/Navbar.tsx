@@ -45,9 +45,11 @@ const Nav: React.FC = () => {
           <ul className="navbar-nav ml-auto navigation-menu">
             {pages.map((page) => (
               <li key={page.path} className="nav-item">
-                <a className="nav-link" data-scroll>
-                  <Link href={page.path}>{page.title}</Link>
-                </a>
+                <Link href={page.path}>
+                  <a className="nav-link" data-scroll>
+                    {page.title}
+                  </a>
+                </Link>
               </li>
             ))}
           </ul>

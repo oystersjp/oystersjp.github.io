@@ -11,11 +11,11 @@ const Footer: React.FC<{ logoText: string }> = (props) => {
           <div className="col-xl-12">
             <div className="copyright text-center">
               <p>
-                <a title={props.logoText}>
-                  <Link href="/">
+                <Link href="/">
+                  <a title={props.logoText}>
                     <Logo />
-                  </Link>
-                </a>
+                  </a>
+                </Link>
               </p>
               <p>
                 Design And Developed by{' '}
