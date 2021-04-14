@@ -21,10 +21,12 @@ const Nav: React.FC = () => {
       className="navbar navbar-expand-lg navigation sticky-top"
     >
       <div className="container">
-        <a className="navbar-brand" href="/">
-          <h1 className="text-hide m-0">Oysters</h1>
-          <Logo width="140" height="40" />
-        </a>
+        <Link href="/">
+          <a className="navbar-brand">
+            <h1 className="text-hide m-0">Oysters</h1>
+            <Logo width="140" height="40" />
+          </a>
+        </Link>
         <button
           onClick={() => toggleNavigation(!isExpanded)}
           className="navbar-toggler navbar-dark"
