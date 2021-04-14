@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Navbar from '@/components/Navbar'
+import About from '@/components/About'
 import MemberList from '@/components/MemberList'
 import { GetStaticProps } from 'next'
 import { Member } from '@/types/Member'
@@ -55,6 +56,7 @@ export default function Home({ members }: { members: Member[] }): JSX.Element {
       </Head>
       <Navbar />
       <Hero />
+      <About />
       <MemberList members={members} />
       <Contact />
       <Activities />
