@@ -46,7 +46,11 @@ const Nav: React.FC = () => {
             {pages.map((page) => (
               <li key={page.path} className="nav-item">
                 <Link href={page.path}>
-                  <a className="nav-link" data-scroll>
+                  <a
+                    className="nav-link"
+                    data-scroll
+                    onClick={() => toggleNavigation(false)}
+                  >
                     {page.title}
                   </a>
                 </Link>
