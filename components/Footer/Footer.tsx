@@ -17,11 +17,11 @@ const Footer: React.FC<{ logoText: string }> = (props) => {
                   </a>
                 </Link>
               </p>
-              <p>
+              <p className="small mb-1">
                 Design And Developed by{' '}
-                <a href="http://www.themefisher.com/"> Themefisher Team </a>.
-                Copyright &copy; {year}. All Rights Reserved.
+                <a href="http://www.themefisher.com/">Themefisher Team</a>.
               </p>
+              <p className="small mt-0">&copy; 2019-{year} Oysters</p>
             </div>
           </div>
         </div>
