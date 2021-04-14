@@ -32,6 +32,7 @@ const Products: React.FC = () => {
                         href={product.url}
                         target="_blank"
                         rel="noreferrer noreferrer"
+                        className="ml-1"
                       >
                         <span className="text-hide">{product.title}へ</span>
                         <i className="tf-ion-android-open"></i>
