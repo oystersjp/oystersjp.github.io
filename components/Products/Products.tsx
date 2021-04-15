@@ -21,7 +21,7 @@ const Products: React.FC = () => {
                   <img
                     className="img-fluid"
                     alt={product.alt}
-                    src={require(`@/public${product.imagePath}`)}
+                    src={require(`@/public${product.imagePath}?width=600&height=400`)}
                   />
                 </div>
                 <div className="content">
@@ -32,6 +32,7 @@ const Products: React.FC = () => {
                         href={product.url}
                         target="_blank"
                         rel="noreferrer noreferrer"
+                        className="ml-1"
                       >
                         <span className="text-hide">{product.title}へ</span>
                         <i className="tf-ion-android-open"></i>
