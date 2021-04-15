@@ -53,8 +53,8 @@
   Products section
 ==================================================================*/
 
-.products-tags:not(:last-child) {
-  margin-right: 4px;
+.products-tags + .products-tags {
+  margin-left: 4px;
 }
 
 /*=================================================================
