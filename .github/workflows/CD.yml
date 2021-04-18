@@ -67,7 +67,7 @@ jobs:
       name: Run lint
 
   deploy:
-    name: predeploy (動作確認後削除する)
+    name: deploy
     needs: [build, lint]
     runs-on: ubuntu-latest
 
