@@ -1,20 +1,7 @@
-version: 2
+version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/golang
-    environment: 
-      TARGET_VERSION: 0.78.0
+      - image: cimg/base:stable
     steps:
-      - checkout
-      - run:
-          name: Get hugo
-          command: |
-            echo "Start installation of Hugo version: $TARGET_VERSION"
-            curl -L https://github.com/gohugoio/hugo/releases/download/v${TARGET_VERSION}/hugo_${TARGET_VERSION}_Linux-64bit.tar.gz | tar xz -C ./bin/
-      - run:
-          name: Build html
-          command: make build
-      - run:
-          name: Diff check
-          command: ./.circleci/diff-check.sh
+      - run: echo "Github Actionsへ移行予定のため、Next.jsへのリプレイスが完了後CircleCIは使用できなくなります。" 

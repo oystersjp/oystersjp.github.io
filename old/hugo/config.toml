@@ -1,0 +1,80 @@
+baseURL = "https://oystersjp.github.io/"
+languageCode = "ja-jp"
+DefaultContentLanguage = "ja"
+title = "Oysters"
+theme = "meghna-hugo"
+summaryLength = 10
+publishDir = "../public"
+
+[taxonomies]
+  author = "author"
+  category = "categories"
+  tag = "tags"
+
+[minify]
+  disableSVG = true
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+# Menu
+[menu]
+    [[menu.nav]]
+    name = "Oystersとは"
+    URL = "about"
+    weight = 1
+
+    [[menu.nav]]
+    name = "メンバー"
+    URL = "team"
+    weight = 2
+
+    [[menu.nav]]
+    name = "活動内容"
+    URL = "activities"
+    weight = 3
+
+    [[menu.nav]]
+    name = "作ってきたもの"
+    URL = "products"
+    weight = 4
+
+    [[menu.nav]]
+    name = "思い出"
+    URL = "memories"
+    weight = 5
+
+# Site params
+[params]
+home= "Home"
+logo = "/assets/images/logo.svg"
+logoText = "Oysters"
+gmapAPI = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"
+# Meta data
+description = "若手ものづくり集団 Oysters"
+author = "Oysters"
+ogTitle = "Oysters"
+ogType = "article"
+ogUrl = "https://oystersjp.github.io/"
+ogImage = "images/ogp.jpg"
+
+# Google Analitycs
+googleAnalitycsID = "Your ID"
+custom_css = ["css/custom.css"]
+
+    # Banner Section
+    [params.banner]
+    enable = true
+    bgImage = "images/hero-area/bg.jpg"
+    icon = ""
+    heading = "Play With Us!!"
+    content= "若手ものづくり集団"
+    btn = false
+    btnText="Explore Us"
+    btnURL="#services"
+
+    # footer
+    [params.footer]
+        copyright = "Themefisher Team"
+        copyrightURL = "http://www.themefisher.com"
+ 

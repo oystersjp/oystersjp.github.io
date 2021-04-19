@@ -1,0 +1,23 @@
+enable : true
+heading : 活動内容
+activityItems :
+  - title : Learning Tech Skills
+    imagePath : /images/activities/study.jpg
+    alt : 勉強会の様子
+    content : 勉強会、読書会の実施や技術情報の共有をしています
+    linkTitle : oystersjp/neta-note
+    url : https://github.com/oystersjp/neta-note/issues?q=is%3Aclosed+is%3Aissue+label%3Astudy
+
+  - title : Holding Tech Events
+    imagePath : /images/activities/event.jpg
+    alt : 開発合宿の様子
+    linkTitle : connpass
+    url : https://oysters.connpass.com/event/
+    content : 無限LTや開発合宿などのイベントを開催しています
+
+  - title: Writing A Tech Blog
+    imagePath : /images/activities/blog.jpg
+    alt : パソコンを使用している写真
+    content: 日々のアウトプットとしてブログを書いています
+    linkTitle : はてなブログ グループ
+    url : https://hatenablog.com/g/8599973812282937084

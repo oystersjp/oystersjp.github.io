@@ -1,0 +1,10 @@
+enable : true
+bg_image : "images/contact/bg.jpg"
+title : Oystersの活動に興味がある方へ
+content : 
+  有意義な交流が出来るように、エンジニアリングや個人開発にモチベーションがある人をご招待しています<br />
+  興味がある方はメンバーの誰か、または [<i class=tf-ion-social-twitter></i> @pinkumohikan](https://twitter.com/pinkumohikan) へご連絡下さい
+button:
+  enable : true
+  label : "<i class=tf-ion-social-twitter></i> @pinkumohikan"
+  link : "https://twitter.com/pinkumohikan"

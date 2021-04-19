@@ -1,0 +1,97 @@
+name: CD
+
+on:
+  push:
+    branches: 
+    - master
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.15.4]
+
+    steps:
+    - uses: actions/checkout@v2
+      name: Check out repository code
+    - uses: actions/setup-node@v1 
+      name: Use Node.js ${{ matrix.node-version }}
+      with:
+        node-version: ${{ matrix.node-version }}
+    - uses: actions/cache@preview
+      name: Cache ~/.npm/ 
+      with:
+        path: '~/.npm/'
+        key: ${{ runner.os }}-projectname-${{ hashFiles(format('{0}{1}', github.workspace, 'package-lock.json')) }}
+        restore-keys:
+          ${{ runner.os }}-projectname-             
+    - run: npm ci  
+    - run: npm run build
+      name: Run build
+    - uses: nwtgck/actions-netlify@v1.0     
+      name: deploy to netlify 
+      with:
+        publish-dir: './out'
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}      
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.15.4]
+
+    steps:
+    - uses: actions/checkout@v2
+      name: Check out repository code
+    - uses: actions/setup-node@v1 
+      name: Use Node.js ${{ matrix.node-version }}
+      with:
+        node-version: ${{ matrix.node-version }}
+    - uses: actions/cache@preview
+      name: Cache ~/.npm/ 
+      with:
+        path: '~/.npm/'
+        key: ${{ runner.os }}-projectname-${{ hashFiles(format('{0}{1}', github.workspace, 'package-lock.json')) }}
+        restore-keys:
+          ${{ runner.os }}-projectname-             
+    - run: npm ci
+    - run: npm run lint
+      name: Run lint
+
+  deploy:
+    name: deploy
+    needs: [build, lint]
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.15.4]
+
+    steps:
+    - uses: actions/checkout@v2
+      name: Check out repository code
+    - uses: actions/setup-node@v1 
+      name: Use Node.js ${{ matrix.node-version }}
+      with:
+        node-version: ${{ matrix.node-version }}
+    - uses: actions/cache@preview
+      name: Cache ~/.npm/ 
+      with:
+        path: '~/.npm/'
+        key: ${{ runner.os }}-projectname-${{ hashFiles(format('{0}{1}', github.workspace, 'package-lock.json')) }}
+        restore-keys:
+          ${{ runner.os }}-projectname-           
+    - run: npm ci     
+    - run: npm run build # build時間が長くなってきたらdeploy jobにbuildを含めないでartifact経由で取得するように変更する
+    - uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./out   

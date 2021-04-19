@@ -1,0 +1,30 @@
+{{ if .Site.Data.activities.enable }}
+<section id="activities" class="section">
+    <div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-12">
+				<div class="title text-center wow fadeInDown">
+                    <h2>{{ .Site.Data.activities.heading }}</h2>
+                    <div class="border-meghna"></div>
+                </div>
+            </div>
+
+            {{ range .Site.Data.activities.activityItems }}
+                <article class="col-lg-4 col-md-6 col-12 clearfix wow fadeInUp mb-4" data-wow-duration="500ms">
+                    <div class="post-block">
+                        <div class="media-wrapper">
+                            {{- $image := resources.Get .imagePath -}}
+                            <img class="img-fluid lozad" data-src="{{ ($image.Fill "600x400" | fingerprint).Permalink }}" alt="{{ .alt }}" onerror="this.onerror=null;this.src='{{ .Params.Image | absURL }}'">
+                        </div>
+                        <div class="content">
+                            <h3>{{ .title }}</h3>
+                            <p>{{ .content }}</p>
+                            <a class="btn btn-transparent" href="{{ .url }}" target="_blank" rel="noreferrer noreferrer">{{ .linkTitle }} <i class="tf-ion-android-open"></i></a>
+                        </div>
+                    </div>
+                </article>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}

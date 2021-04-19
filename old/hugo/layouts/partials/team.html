@@ -1,0 +1,75 @@
+{{ if .Site.Data.team.enable }}
+{{ with .Site.Data.team }}
+{{"<!-- Start Our Team -->" | safeHTML}}
+<section id="team" class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        {{"<!-- section title -->" | safeHTML}}
+        <div class="title text-center wow fadeInUp" data-wow-duration="500ms">
+          <h2>{{ with .title }} {{ index (split . " ") 0 | safeHTML }} {{ end }}<span class="color">
+            {{ with .title }} {{ after (len (index (split . " ") 0)) . | safeHTML }} {{ end }}</span></h2>
+          <div class="border-meghna"></div>
+        </div>
+      </div>
+      {{"<!-- /section title -->" | safeHTML}}
+
+      {{ range .team_member }}
+      {{"<!-- team member -->" | safeHTML}}
+      <div class="col-lg-4 col-md-4 col-12 wow fadeInDown mb-2" data-wow-duration="500ms">
+        <div class="team-member media p-3">
+          {{"<!-- member photo -->" | safeHTML}}
+          {{- $image := ((resources.Get .image).Fit "144x144" | fingerprint).Permalink -}}
+          <img class="border rounded-circle align-self-center lozad mr-3" width="72" height="72" data-src="{{ $image }}" alt="{{ .alt }}" onerror="this.onerror=null;this.src='{{ $image }}'">
+
+          {{"<!-- member name & designation -->" | safeHTML }}
+          <div class="member-meta media-body text-truncate align-self-center p-0">
+            <h4 class="h6 font-weight-bold text-truncate m-0" style="max-width: 100%;">{{ .name }}</h4>
+            {{ with .job }}<p class="mb-2">{{ . | markdownify }}</p>{{ end }}
+
+            {{"<!-- member social profile -->" | safeHTML}}
+            {{ if or .twitter .github .website }}
+              <!-- 半角スペースが入ると隙間が表示されるのでそうならないように改行しています -->
+              <ul
+                class="list-inline mt-2 mb-0" role="group"
+              >{{ with .twitter }}<li
+                class="list-inline-item"
+                ><a
+                  href="https://twitter.com/{{ . | safeURL }}"
+                  class="btn btn-outline-dark py-0 px-1"
+                  title="twitter"
+                  rel="noreferrer noreferrer"
+                  target="_blank"
+                  ><i class="tf-ion-social-twitter"></i></a></li
+                >{{ end }}{{ with .github }}<li
+                  class="list-inline-item"
+                  ><a
+                    href="https://github.com/{{ . | safeURL }}"
+                    class="btn btn-outline-dark py-0 px-1"
+                    title="Github"
+                    rel="noreferrer noreferrer"
+                    target="_blank"
+                    ><i class="tf-ion-social-github"></i></a
+                  ></li
+                >{{ end }}{{ with .website }}<li
+                  class="list-inline-item"
+                  ><a
+                    href="{{ . | safeURL }}"
+                    class="btn btn-outline-dark py-0 px-1"
+                    title="ウェブサイト"
+                    rel="noreferrer noreferrer"
+                    target="_blank"><i class="tf-ion-ios-world"></i></a
+                  ></li
+                >{{ end }}</ul>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      {{"<!-- end team member -->" | safeHTML }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{"<!-- /team -->" | safeHTML}}
+{{ end }}
+{{ end }}
