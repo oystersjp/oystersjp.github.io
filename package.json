@@ -10,7 +10,7 @@
     "add-member": "npx hygen gen intro"
   },
   "dependencies": {
-    "next": "10.0.6",
+    "next": "12.1.0",
     "next-compose-plugins": "^2.2.1",
     "next-optimized-images": "^3.0.0-canary.10",
     "react": "17.0.1",
