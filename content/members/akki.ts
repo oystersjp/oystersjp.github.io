@@ -1,4 +1,4 @@
 export default {
   name: 'akki',
-  image: '/images/members/akki.jpg'
+  image: 'images/akki.jpg'
 }

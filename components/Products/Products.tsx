@@ -21,7 +21,7 @@ const Products: React.FC = () => {
                   <img
                     className="img-fluid"
                     alt={product.alt}
-                    src={require(`@/public${product.imagePath}?width=600&height=400`)}
+                    src={require(`@/content/products/${product.imagePath}?width=600&height=400`)}
                   />
                 </div>
                 <div className="content">

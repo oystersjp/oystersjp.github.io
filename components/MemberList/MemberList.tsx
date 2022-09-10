@@ -26,7 +26,7 @@ export function MemberList({ members }: { members: Member[] }): JSX.Element {
             >
               <div className="team-member media p-3">
                 <img
-                  src={require(`@/public${member.image}?width=144&height=144`)}
+                  src={require(`@/content/members/${member.image}?width=144&height=144`)}
                   className="border rounded-circle align-self-center lozad mr-3"
                   width={72}
                   height={72}

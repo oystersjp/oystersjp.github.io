@@ -2,7 +2,7 @@ import Activitiy from '@/types/Activity'
 
 const WritingATechBlog: Activitiy = {
   title: 'Writing A Tech Blog',
-  imagePath: '/images/activities/blog.jpg',
+  imagePath: 'images/blog.jpg',
   alt: 'パソコンを使用している写真',
   content: '日々のアウトプットとしてブログを書いています',
   linkTitle: 'はてなブログ グループ',

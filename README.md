@@ -22,7 +22,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 以下にメンバーの追加手順を記します。
 
-1. `public/images/members`にご自身のプロフィール画像を追加する。
+1. `content/members/images`にご自身のプロフィール画像を追加する。
 2. コマンド `npm run add-member` を実行し、質問に沿ってコマンドラインに入力していく。
 3. `content/members` 以下に追加したいメンバーの名前のついたtsファイルが存在しているか内容も含めて確認する。
 4. 別ブランチを切ってコミットし、PRを作成してレビュー依頼する。（誰でもOK）
@@ -33,7 +33,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ```tsx
 <img
-  src={require(`@/content${member.image}?width=144&height=144`)}
+  src={require(`@/content/members/${member.image}?width=144&height=144`)}
   width={72}
   height={72}
 />
