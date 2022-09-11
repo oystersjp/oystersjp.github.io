@@ -2,7 +2,7 @@ import type { Product } from '@/types/Product'
 
 export const CoinStep: Product = {
   title: 'Coin Step',
-  imagePath: '/images/products/coin-step.jpg',
+  imagePath: 'images/coin-step.jpg',
   alt: 'Coin Stepの画面',
   content: '仮想通貨のヴァーチャルトレードサービス',
   tags: ['Go', 'Vue', 'TypeScript'],

@@ -2,7 +2,7 @@ import Activitiy from '@/types/Activity'
 
 const LearningTechSkills: Activitiy = {
   title: 'Learning Tech Skills',
-  imagePath: '/images/activities/study.jpg',
+  imagePath: 'images/study.jpg',
   alt: '勉強会の様子',
   content: '勉強会、読書会の実施や技術情報の共有をしています',
   linkTitle: 'oystersjp/neta-note',

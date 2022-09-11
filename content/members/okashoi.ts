@@ -1,6 +1,6 @@
 export default {
   name: 'okashoi',
-  image: '/images/members/okashoi.png',
+  image: 'images/okashoi.png',
   twitter: 'okashoi',
   github: 'okashoi',
   website: 'https://blog.okashoi.net'

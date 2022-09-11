@@ -1,7 +1,12 @@
-import LogoSVG from '@/components/Logo/logo.svg'
-import { Svg } from 'react-optimized-image'
+type Props = Omit<React.SVGProps<HTMLImageElement>, 'src'>
 
-type Props = Omit<React.SVGProps<SVGSVGElement>, 'src'>
-const Logo: React.FC<Props> = (props) => <Svg src={LogoSVG} {...props} />
+const Logo: React.FC<Props> = (props) => (
+  <span
+    dangerouslySetInnerHTML={{
+      __html: require('@/components/Logo/logo.svg?include')
+    }}
+    {...props}
+  />
+)
 
 export default Logo

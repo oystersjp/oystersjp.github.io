@@ -30,7 +30,7 @@ const Activities: React.FC = () => {
                   <img
                     className="img-fluid lozad"
                     alt={activity.alt}
-                    src={require(`@/public${activity.imagePath}?width=600&height=400`)}
+                    src={require(`@/content/activities/${activity.imagePath}?width=600&height=400`)}
                     data-loaded="true"
                     width={350}
                     height={233.33}

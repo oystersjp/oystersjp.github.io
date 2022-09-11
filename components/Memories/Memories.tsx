@@ -26,7 +26,7 @@ const Memories: React.FC = () => {
                   <img
                     className="img-fluid lozad"
                     alt={memory.alt}
-                    src={require(`@/public${memory.imagePath}?width=600&height=400`)}
+                    src={require(`@/content/memories/${memory.imagePath}?width=600&height=400`)}
                     width={350}
                     height={233.33}
                   />

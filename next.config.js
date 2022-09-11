@@ -1,18 +1,28 @@
 const path = require('path')
-const withPlugins = require('next-compose-plugins')
-const optimizedImages = require('next-optimized-images')
+const withOptimizedImages = require('next-optimized-images')
 
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
-  webpack: (config) => {
-    config.resolve.alias['@'] = path.resolve(__dirname)
-    return config
+  swcMinify: false,
+  experimental: {
+    images: { allowFutureImage: true }
+  },
+  images: {
+    loader: 'custom',
+    // エラー `TypeError: unsupported file type: undefined (file: undefined)` のワークアラウンド
+    // https://github.com/cyrilwanner/next-optimized-images/issues/251
+    disableStaticImages: true
+  },
+  webpack: (webpackConfig) => {
+    webpackConfig.resolve.alias = {
+      ...webpackConfig.resolve.alias,
+      '@': [path.resolve(__dirname, './')]
+    }
+
+    return webpackConfig
   }
 }
-module.exports = withPlugins(
-  /**
-   * next-optimized-images
-   * https://github.com/cyrilwanner/next-optimized-images#configuration
-   */
-  [optimizedImages],
-  nextConfig
-)
+
+module.exports = withOptimizedImages(nextConfig)

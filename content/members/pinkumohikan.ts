@@ -1,6 +1,6 @@
 export default {
   name: 'pinkumohikan',
-  image: '/images/members/pinkumohikan.jpg',
+  image: 'images/pinkumohikan.jpg',
   twitter: 'pinkumohikan',
   website: 'https://blog.pinkumohikan.com'
 }
