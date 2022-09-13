@@ -13,7 +13,7 @@ npm install
 ### 開発用サーバ起動 & 変更時自動ビルド
 
 ```
-npm run dev
+npm run dev:ts
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
