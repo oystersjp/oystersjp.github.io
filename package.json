@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "dev:ts": "npm run dev & tsc --watch",
+    "dev": "next dev & tsc --watch",
     "build": "next build && next export",
     "start": "next start",
     "lint": "eslint . --ext ts,tsx,js,jsx",
