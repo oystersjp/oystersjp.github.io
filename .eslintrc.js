@@ -16,7 +16,11 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['prettier', 'react'],
-  extends: ['standard', 'plugin:react/recommended'],
+  extends: [
+    'standard',
+    'plugin:react/recommended',
+    'plugin:@next/next/recommended'
+  ],
   rules: {
     'prettier/prettier': 'error',
     'space-before-function-paren': 'off'
@@ -41,7 +45,8 @@ module.exports = {
               }
             ]
           }
-        ]
+        ],
+        '@next/next/no-img-element': 'off'
       }
     }
   ]
