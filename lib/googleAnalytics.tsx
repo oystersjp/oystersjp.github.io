@@ -1,6 +1,6 @@
 import Script from 'next/script'
 
-export const gaMeasurementId = 'G-WM91B782B2'
+const gaMeasurementId = 'G-WM91B782B2'
 
 export const GoogleAnalytics = (): JSX.Element => (
   <>
