@@ -11,8 +11,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   useRouterScroll()
   return (
     <>
-      <GoogleTagManager></GoogleTagManager>
-      <GoogleAnalytics></GoogleAnalytics>
+      <GoogleTagManager />
+      <GoogleAnalytics />
 
       <Component {...pageProps} />
     </>
