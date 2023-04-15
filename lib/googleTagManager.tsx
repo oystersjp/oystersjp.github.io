@@ -21,7 +21,7 @@ export const GoogleTagManager = (): JSX.Element => (
   </>
 )
 
-export const NoScript = (): JSX.Element => (
+export const GoogleTagManagerInBody = (): JSX.Element => (
   <>
     {
       <noscript
