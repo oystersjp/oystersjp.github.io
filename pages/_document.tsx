@@ -13,7 +13,7 @@ const DocumentComponent = (): JSX.Element => {
         />
       </Head>
       <body>
-        <GoogleTagManagerInBody></GoogleTagManagerInBody>
+        <GoogleTagManagerInBody />
         <Main />
         <NextScript />
       </body>
