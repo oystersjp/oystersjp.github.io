@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document'
+import { GoogleTagManagerInBody } from '@/lib/googleTagManager'
 
 const DocumentComponent = (): JSX.Element => {
   return (
@@ -12,6 +13,7 @@ const DocumentComponent = (): JSX.Element => {
         />
       </Head>
       <body>
+        <GoogleTagManagerInBody />
         <Main />
         <NextScript />
       </body>
