@@ -1,6 +1,6 @@
 import Script from 'next/script'
 
-const googleTagManagerId = 'GTM-KH27S7S'
+const googleTagManagerId = 'GTM-WB6N7QH'
 
 export const GoogleTagManager = (): JSX.Element => (
   <Script
