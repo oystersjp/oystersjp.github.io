@@ -6,7 +6,7 @@ const StreamingAPodcast: Activitiy = {
   alt: '',
   content: 'Podcastで所属メンバーが技術のことから暮らしのことまで語っています',
   linkTitle: 'Oysters Podcast',
-  url: 'https://oystersjp.github.io/podcast/'
+  url: '/podcast'
 }
 
 export default StreamingAPodcast
