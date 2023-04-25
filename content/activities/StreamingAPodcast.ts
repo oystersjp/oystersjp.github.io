@@ -1,7 +1,7 @@
 import Activitiy from '@/types/Activity'
 
 const StreamingAPodcast: Activitiy = {
-  title: 'Streaming A Podcast',
+  title: 'Streaming a Podcast',
   imagePath: 'images/podcast.jpg',
   alt: '',
   content: 'Podcastで所属メンバーが技術のことから暮らしのことまで語っています',
