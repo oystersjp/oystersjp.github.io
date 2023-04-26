@@ -33,7 +33,7 @@ const Activities: React.FC = () => {
                     src={require(`@/content/activities/${activity.imagePath}?width=600&height=400`)}
                     data-loaded="true"
                     width={540}
-                    height={233.33}
+                    height={360}
                   />
                 </div>
                 <div className="content">
