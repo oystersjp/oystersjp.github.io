@@ -16,7 +16,7 @@ const Activities: React.FC = () => {
           </div>
           {activityList.map((activity) => (
             <article
-              className="col-lg-4 col-md-6 col-12 clearfix wow fadeInUp mb-4"
+              className="col-lg-6 col-md-6 col-12 clearfix wow fadeInUp mb-4"
               data-wow-duration="500ms"
               style={{
                 visibility: 'visible',
@@ -32,8 +32,8 @@ const Activities: React.FC = () => {
                     alt={activity.alt}
                     src={require(`@/content/activities/${activity.imagePath}?width=600&height=400`)}
                     data-loaded="true"
-                    width={350}
-                    height={233.33}
+                    width={540}
+                    height={360}
                   />
                 </div>
                 <div className="content">
