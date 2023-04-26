@@ -7,7 +7,8 @@
     "build": "next build && next export",
     "start": "next start",
     "lint": "eslint . --ext ts,tsx,js,jsx",
-    "add-member": "npx hygen gen intro"
+    "add-member": "npx hygen gen intro",
+    "postbuild": "next-sitemap --config next-sitemap.config.js"
   },
   "dependencies": {
     "next": "^12.2.5",
