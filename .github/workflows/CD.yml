@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.17.0]
+        node-version: [18.16.0]
 
     steps:
     - uses: actions/checkout@v2
@@ -73,7 +73,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.17.0]
+        node-version: [18.16.0]
 
     steps:
     - uses: actions/checkout@v2
