@@ -2,68 +2,56 @@ name: CI
 
 on:
   push:
-    branches: 
-    - '**' 
-    - '!master'
-    - '!gh-pages'
+    branches:
+      - '**'
+      - '!master'
+      - '!gh-pages'
 
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.16.0]
-
     steps:
-    - uses: actions/checkout@v2
-      name: Check out repository code
-    - uses: actions/setup-node@v1 
-      name: Use Node.js ${{ matrix.node-version }}
-      with:
-        node-version: ${{ matrix.node-version }}
-    - uses: actions/cache@preview
-      name: Cache ~/.npm/ 
-      with:
-        path: '~/.npm/'
-        key: ${{ runner.os }}-projectname-${{ hashFiles(format('{0}{1}', github.workspace, 'package-lock.json')) }}
-        restore-keys:
-          ${{ runner.os }}-projectname-             
-    - run: npm ci  
-    - run: npm run build
-      name: Run build
-    - uses: nwtgck/actions-netlify@v1.0     
-      name: deploy to netlify 
-      with:
-        publish-dir: './out'
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-      env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}      
+      - uses: actions/checkout@v2
+        name: Check out repository code
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
+      - uses: actions/cache@preview
+        name: Cache ~/.npm/
+        with:
+          path: '~/.npm/'
+          key: ${{ runner.os }}-projectname-${{ hashFiles(format('{0}{1}', github.workspace, 'package-lock.json')) }}
+          restore-keys: ${{ runner.os }}-projectname-
+      - run: npm ci
+      - run: npm run build
+        name: Run build
+      - uses: nwtgck/actions-netlify@v1.0
+        name: deploy to netlify
+        with:
+          publish-dir: './out'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
   lint:
     name: Lint
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.16.0]
-
     steps:
-    - uses: actions/checkout@v2
-      name: Check out repository code
-    - uses: actions/setup-node@v1 
-      name: Use Node.js ${{ matrix.node-version }}
-      with:
-        node-version: ${{ matrix.node-version }}
-    - uses: actions/cache@preview
-      name: Cache ~/.npm/ 
-      with:
-        path: '~/.npm/'
-        key: ${{ runner.os }}-projectname-${{ hashFiles(format('{0}{1}', github.workspace, 'package-lock.json')) }}
-        restore-keys:
-          ${{ runner.os }}-projectname-             
-    - run: npm ci
-    - run: npm run lint
-      name: Run lint
+      - uses: actions/checkout@v2
+        name: Check out repository code
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
+      - uses: actions/cache@preview
+        name: Cache ~/.npm/
+        with:
+          path: '~/.npm/'
+          key: ${{ runner.os }}-projectname-${{ hashFiles(format('{0}{1}', github.workspace, 'package-lock.json')) }}
+          restore-keys: ${{ runner.os }}-projectname-
+      - run: npm ci
+      - run: npm run lint
+        name: Run lint

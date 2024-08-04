@@ -10,8 +10,8 @@
     "add-member": "npx hygen gen intro"
   },
   "engines": {
-    "node": "16.17.0",
-    "npm": "8.15.0"
+    "node": "20.16.0",
+    "npm": "10.8.1"
   },
   "dependencies": {
     "next": "^12.2.5",
