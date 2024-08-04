@@ -9,6 +9,10 @@
     "lint": "eslint . --ext ts,tsx,js,jsx",
     "add-member": "npx hygen gen intro"
   },
+  "engines": {
+    "node": "16.17.0",
+    "npm": "8.15.0"
+  },
   "dependencies": {
     "next": "^12.2.5",
     "next-optimized-images": "^2.6.2",
