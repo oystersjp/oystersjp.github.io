@@ -1,5 +1,5 @@
 export default {
-  name: '02',
+  name: 'O2',
   image: 'images/02.jpg',
   twitter: 'cocoeyes02',
   github: 'cocoeyes02',
