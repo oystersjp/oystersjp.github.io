@@ -13,16 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         name: Check out repository code
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: package.json
-      - uses: actions/cache@preview
-        name: Cache ~/.npm/
-        with:
-          path: '~/.npm/'
-          key: ${{ runner.os }}-projectname-${{ hashFiles(format('{0}{1}', github.workspace, 'package-lock.json')) }}
-          restore-keys: ${{ runner.os }}-projectname-
-      - run: npm ci
+      - uses: ./.github/actions/setup
       - run: npm run build
         name: Run build
       - uses: nwtgck/actions-netlify@v1.2.3
@@ -41,16 +32,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         name: Check out repository code
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: package.json
-      - uses: actions/cache@preview
-        name: Cache ~/.npm/
-        with:
-          path: '~/.npm/'
-          key: ${{ runner.os }}-projectname-${{ hashFiles(format('{0}{1}', github.workspace, 'package-lock.json')) }}
-          restore-keys: ${{ runner.os }}-projectname-
-      - run: npm ci
+      - uses: ./.github/actions/setup
       - run: npm run lint
         name: Run lint
 
@@ -62,16 +44,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         name: Check out repository code
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: package.json
-      - uses: actions/cache@preview
-        name: Cache ~/.npm/
-        with:
-          path: '~/.npm/'
-          key: ${{ runner.os }}-projectname-${{ hashFiles(format('{0}{1}', github.workspace, 'package-lock.json')) }}
-          restore-keys: ${{ runner.os }}-projectname-
-      - run: npm ci
+      - uses: ./.github/actions/setup
       - run: npm run build # build時間が長くなってきたらdeploy jobにbuildを含めないでartifact経由で取得するように変更する
       - uses: peaceiris/actions-gh-pages@v3
         with:
