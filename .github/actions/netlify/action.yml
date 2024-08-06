@@ -1,0 +1,39 @@
+name: Deploy to Netlify
+description: Deploy to Netlify
+
+inputs:
+  publish-dir:
+    description: e.g. "dist", "_site"
+    required: true
+  netlify-auth-token:
+    description: Required The token to use for authentication.
+    required: true
+  netlify-site-id:
+    description: API site ID of the site you wanna work on
+    required: true
+
+outputs:
+  netlify-url:
+    value: ${{ steps.result.outputs.deploy-url }}
+    description: the URL of the draft site that Netlify provides
+
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/checkout@v4
+      with:
+        clean: false
+    - name: Deploy to Netlify
+      id: netlify
+      # FYI: https://github.com/netlify/actions/pull/65
+      uses: South-Paw/action-netlify-cli@v2
+      with:
+        args: 'deploy --json --dir \"${{ inputs.publish-dir }}\" --message \"VRT report [${{ github.sha }}]\"'
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ inputs.netlify-auth-token }}
+        NETLIFY_SITE_ID: ${{ inputs.netlify-site-id }}
+    - name: set outputs
+      id: result
+      shell: bash
+      run: |
+        echo "deploy-url=${{ fromJson(steps.netlify.outputs.NETLIFY_OUTPUT).deploy_url }}" >> "$GITHUB_OUTPUT"

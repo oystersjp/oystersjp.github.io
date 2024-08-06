@@ -18,9 +18,32 @@ jobs:
           fc-cache -fv
       - uses: ./.github/actions/setup
       - name: Run visual tests
+        continue-on-error: true
+        id: vrt
         run: npm run test:vrt
-      - name: Upload test result
-        uses: actions/upload-artifact@v4
+
+      - uses: ./.github/actions/netlify
+        id: netlify
+        timeout-minutes: 1
         with:
-          name: Visual Regression Test Result
-          path: .reg/
+          publish-dir: ./.reg
+          netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
+
+      - if: ${{ steps.vrt.outcome == 'success' }}
+        name: Comment PR if success
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            **✨✨ That's perfect, there is no visual difference! ✨✨**
+            You can check [this report](${{ steps.netlify.outputs.netlify-url }}) out here.
+          comment_tag: test-report-vrt
+
+      - if: ${{ steps.vrt.outcome == 'failure' }}
+        name: Comment PR if failure
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            **reg-suit detected visual differences.**
+            Check [this report](${{ steps.netlify.outputs.netlify-url }}), and review them.
+          comment_tag: test-report-vrt
