@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint . --ext ts,tsx,js,jsx",
     "add-member": "npx hygen gen intro",
-    "test:vrt": "playwright test -u"
+    "test:vrt": "playwright test -u && reg-cli .reg/actual .reg/expected .reg/diff -R .reg/index.html"
   },
   "engines": {
     "node": "20.16.0",
@@ -48,6 +48,7 @@
     "lint-staged": "^10.5.3",
     "next-compose-plugins": "^2.2.1",
     "prettier": "^2.2.1",
+    "reg-cli": "^0.18.6",
     "responsive-loader": "^2.3.0",
     "typescript": "^4.5.0"
   },
