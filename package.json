@@ -6,7 +6,7 @@
     "add-member": "echo \"Error: no test specified\" && exit 1",
     "build": "astro check && astro build",
     "dev": "astro dev",
-    "lint": "echo \"Error: no test specified\" && exit 1",
+    "lint:js": "eslint",
     "preview": "astro preview",
     "start": "astro dev"
   },
@@ -18,5 +18,12 @@
   "engines": {
     "node": "20.16.0",
     "npm": "10.8.1"
+  },
+  "devDependencies": {
+    "@types/eslint": "^9.6.0",
+    "@typescript-eslint/parser": "^8.0.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-astro": "^1.2.3",
+    "eslint-plugin-jsx-a11y": "^6.9.0"
   }
 }
