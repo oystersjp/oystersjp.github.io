@@ -7,6 +7,7 @@
     "build": "astro check && astro build",
     "dev": "astro dev",
     "lint:js": "eslint",
+    "lint:css": "stylelint",
     "preview": "astro preview",
     "start": "astro dev"
   },
@@ -24,6 +25,9 @@
     "@typescript-eslint/parser": "^8.0.1",
     "eslint": "^8.57.0",
     "eslint-plugin-astro": "^1.2.3",
-    "eslint-plugin-jsx-a11y": "^6.9.0"
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "postcss-html": "^1.7.0",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-recommended": "^14.0.1"
   }
 }

@@ -5,5 +5,6 @@
     "astro",
     "typescript",
     "typescriptreact"
-  ]
+  ],
+  "stylelint.validate": ["html", "astro"]
 }
