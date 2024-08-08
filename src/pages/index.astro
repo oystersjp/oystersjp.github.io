@@ -1,4 +1,6 @@
 ---
+import Header from '@/components/Header/Header.astro'
+
 const siteUrl = Astro.site
 const ogpImageUrl = new URL('/images/ogp.png', siteUrl)
 
@@ -24,6 +26,6 @@ const subTitle = '若手ものづくり集団 Oysters'
   </head>
 
   <body>
-    <main>Welcome to Astro.</main>
+    <Header />
   </body>
 </html>

@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets'
+
+const links = {
+  github: {
+    alt: 'Github',
+    url: 'https://github.com/oystersjp',
+    image: await import('./assets/github.svg').then((m) => m.default)
+  },
+  hatena: {
+    alt: 'Hatenaブロググループ',
+    url: 'https://hatenablog.com/g/8599973812282937084',
+    image: await import('./assets/hatena.svg').then((m) => m.default)
+  },
+  connpass: {
+    alt: 'Connpass',
+    url: 'https://oysters.connpass.com/event',
+    image: await import('./assets/connpass.svg').then((m) => m.default)
+  }
+} as const
+
+interface Props {
+  type: keyof typeof links
+}
+const { type } = Astro.props
+
+const link = links[type]
+---
+
+<a href={link.url} target="_blank" rel="noreferrer">
+  <Image
+    src={link.image}
+    width={32}
+    height={32}
+    alt={link.alt}
+    densities={[1, 2]}
+    format="svg"
+  />
+</a>
