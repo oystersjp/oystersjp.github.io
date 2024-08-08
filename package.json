@@ -9,6 +9,7 @@
     "fix:js": "eslint --fix",
     "fix:css": "stylelint --fix",
     "fix:format": "prettier --write",
+    "lint": "npm run lint:js -- . && npm run lint:css -- \"**/*.astro\" && npm run lint:format -- .",
     "lint:js": "eslint",
     "lint:css": "stylelint",
     "lint:format": "prettier --check",
