@@ -14,7 +14,8 @@
     "lint:format": "prettier --check",
     "prepare": "husky",
     "preview": "astro preview",
-    "start": "astro dev"
+    "start": "astro dev",
+    "type-check": "astro check"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.2",
