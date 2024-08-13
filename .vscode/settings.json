@@ -6,6 +6,9 @@
     "typescript",
     "typescriptreact"
   ],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
   "stylelint.validate": ["html", "astro"],
   "prettier.documentSelectors": ["**/*.astro"],
   "[astro]": {
