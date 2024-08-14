@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets'
-import iconExternal from './assets/external.svg'
+import iconExternal from './assets/external.svg?raw'
+import { Svg } from '@/useCases/Svg'
 
 interface Props {
   image: string
@@ -19,21 +20,31 @@ const thumbnails = import.meta.glob<{ default: ImageMetadata }>(
 const thumbnail = thumbnails[`./assets/thumbnails/${image}`]()
 ---
 
-<div>
-  <Image src={thumbnail} width={344} height={172} alt="" densities={[1, 2]} />
-  {description}
-  {
-    link && (
-      <span>
-        {link.title}
-        <Image
-          src={iconExternal}
-          width={20}
-          height={20}
-          alt=""
-          densities={[1, 2]}
-        />
-      </span>
-    )
-  }
+<div
+  class="flex h-full flex-col overflow-clip rounded-lg shadow"
+  class:list={{ 'transition-shadow duration-500 hover:shadow-hover': !!link }}
+>
+  <Image
+    src={thumbnail}
+    width={344}
+    height={172}
+    alt=""
+    densities={[1, 2]}
+    class="w-full"
+  />
+  <p class="flex flex-auto flex-col justify-between gap-2 p-4">
+    <span class="text-gray-800">{description}</span>
+    {
+      link && (
+        <span>
+          <span class="underline">{link.title}</span>
+          <Svg
+            src={iconExternal}
+            aria-hidden="true"
+            class="size-[20px] align-middle"
+          />
+        </span>
+      )
+    }
+  </p>
 </div>
