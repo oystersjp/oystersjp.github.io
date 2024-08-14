@@ -1,48 +1,46 @@
 ---
-import { Image } from 'astro:assets'
+import { Svg } from '@/useCases/Svg'
 
 const activities = [
   {
     title: 'Web界隈の情報集交換',
     description:
       '(主に) web系のトピックについて話したり、一緒に何かを作ったり、モクモクしたりしています。',
-    image: await import('./assets/coworking.svg').then((m) => m.default)
+    image: await import('./assets/coworking.svg?raw').then((m) => m.default)
   },
   {
     title: 'イベント企画',
     description:
       '不定期で「無限LT」イベントや開発合宿などの企画・運営をしています。',
-    image: await import('./assets/event.svg').then((m) => m.default)
+    image: await import('./assets/event.svg?raw').then((m) => m.default)
   },
   {
     title: 'メンバー交流',
     description: 'Web開発以外にもサバゲーやゲームなどワイワイ楽しんでいます。',
-    image: await import('./assets/hobby.svg').then((m) => m.default)
+    image: await import('./assets/hobby.svg?raw').then((m) => m.default)
   }
 ] as const
 ---
 
 <section>
-  <h2>活動内容</h2>
+  <h2 class="p-4 font-bold text-heading">活動内容</h2>
   <p>
-    <dl>
+    <ul class="px-4">
       {
         activities.map((item) => (
-          <>
-            <dt>
-              <Image
-                src={item.image}
-                width={64}
-                height={64}
-                alt=""
-                densities={[1, 2]}
-              />
-              {item.title}
-            </dt>
-            <dd>{item.description}</dd>
-          </>
+          <li class="flex items-center gap-4 pt-4">
+            <Svg
+              src={item.image}
+              class="size-[64px] flex-none fill-activities-icon"
+              aria-hidden="true"
+            />
+            <div>
+              <span class="block py-2 font-bold">{item.title}</span>
+              {item.description}
+            </div>
+          </li>
         ))
       }
-    </dl>
+    </ul>
   </p>
 </section>
