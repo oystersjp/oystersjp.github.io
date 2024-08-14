@@ -1,4 +1,6 @@
 ---
+import './PageHome.css'
+
 import Activities from '@/useCases/Home/components/Activities/Activities.astro'
 import Footer from '@/useCases/Home/components/Footer/Footer.astro'
 import Header from '@/useCases/Home/components/Header/Header.astro'
@@ -17,7 +19,7 @@ const subTitle = '若手ものづくり集団 Oysters'
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, viewport-fit=cover" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content={siteUrl} />
@@ -31,11 +33,20 @@ const subTitle = '若手ものづくり集団 Oysters'
   </head>
 
   <body>
-    <Header />
-    <Hero />
-    <Activities />
-    <Members />
-    <Highlights />
+    <Hero>
+      <Header slot="header" />
+    </Hero>
+    <main class="container mx-auto pb-9 px-safe">
+      <div class="mt-9">
+        <Activities />
+      </div>
+      <div class="mt-9">
+        <Members />
+      </div>
+      <div class="mt-9">
+        <Highlights />
+      </div>
+    </main>
     <Footer />
   </body>
 </html>
