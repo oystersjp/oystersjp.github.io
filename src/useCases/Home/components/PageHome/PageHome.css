@@ -57,6 +57,11 @@
   }
 
   a {
-    @apply text-anchor underline;
+    @apply fill-anchor text-anchor underline;
+    @apply transition duration-500;
+
+    &:hover {
+      --box-shadow: var(--box-shadow-hover);
+    }
   }
 }

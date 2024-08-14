@@ -1,13 +1,13 @@
 export const members: Readonly<
   Array<
     Record<'name' | 'image', string> &
-      Partial<Record<'twitter' | 'github' | 'website', string | undefined>>
+      Partial<Record<'x' | 'github' | 'website', string | undefined>>
   >
 > = [
   {
     name: '02',
     image: '02.jpg',
-    twitter: 'cocoeyes02',
+    x: 'cocoeyes02',
     github: 'cocoeyes02',
     website: 'https://cocoeyes02.hatenadiary.jp'
   },
@@ -18,7 +18,7 @@ export const members: Readonly<
   {
     name: 'cureseven',
     image: 'cureseven.jpg',
-    twitter: 'cureseven',
+    x: 'cureseven',
     github: 'cureseven',
     website: 'http://cureseven.tokyo'
   },
@@ -37,14 +37,14 @@ export const members: Readonly<
   {
     name: 'okashoi',
     image: 'okashoi.png',
-    twitter: 'okashoi',
+    x: 'okashoi',
     github: 'okashoi',
     website: 'https://blog.okashoi.net'
   },
   {
     image: 'pinkumohikan.jpg',
     name: 'pinkumohikan',
-    twitter: 'pinkumohikan',
+    x: 'pinkumohikan',
     website: 'https://blog.pinkumohikan.com'
   },
   {
@@ -56,20 +56,20 @@ export const members: Readonly<
   {
     name: 'Sorarinu',
     image: 'sorarinu.jpg',
-    twitter: 'int_sorarinu',
+    x: 'int_sorarinu',
     github: 'Sorarinu',
     website: 'https://sorarinu.dev'
   },
   {
     name: 'yu',
     image: 'yu.jpg',
-    twitter: 'azu369yu',
+    x: 'azu369yu',
     github: 'Yu0614'
   },
   {
     name: 'zoe',
     image: 'zoe.jpg',
-    twitter: 'for__3',
+    x: 'for__3',
     github: 'IkezoeMakoto',
     website: 'https://blog.zoe.tools'
   },
