@@ -1,0 +1,43 @@
+@tailwind base;
+
+@layer base {
+  :root {
+    --color-gray-50: #fff;
+    --color-gray-100: rgb(0, 0, 0/0.05);
+    --color-gray-800: #333;
+
+    --color-anchor: #333;
+    --color-heading: #333;
+
+    --color-header-logo: #333;
+    --color-hero-visual-line: #3c7392;
+    --color-activities-icon: #333;
+    --color-card-bg: #fff;
+    --color-footer-bg: rgb(0 0 0/0.05);
+    --color-footer-text: #333;
+
+    --box-shadow-color: rgb(0 0 0/ 0.15);
+    --box-shadow: 0 0 4px var(--box-shadow-color);
+    --box-shadow-hover: 0 0 8px var(--box-shadow-color);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-gray-50: #0f1119;
+      --color-gray-100: #484c5b;
+      --color-gray-800: #a7acca;
+
+      --color-anchor: #f7cd7a;
+      --color-heading: #9cdbfb;
+
+      --color-header-logo: #d9d9d9;
+      --color-hero-visual-line: #9cdbfb;
+      --color-activities-icon: #91c9c4;
+      --color-card-bg: #090b10;
+      --color-footer-bg: #090b10;
+      --color-footer-text: #91c9c4;
+
+      --box-shadow-color: rgb(255 255 255/ 0.3);
+    }
+  }
+}

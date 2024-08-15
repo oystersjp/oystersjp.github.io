@@ -6,5 +6,12 @@ export default {
     'stylelint-config-html/xml',
     'stylelint-config-html/astro'
   ],
-  rules: {}
+  rules: {
+    'at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: ['tailwind']
+      }
+    ]
+  }
 }

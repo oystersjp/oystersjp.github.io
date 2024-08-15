@@ -4,7 +4,38 @@ import plugin from 'tailwindcss/plugin'
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
-    extend: {}
+    boxShadow: {
+      DEFAULT: 'var(--box-shadow)',
+      hover: 'var(--box-shadow-hover)'
+    },
+    boxShadowColor: {
+      DEFAULT: 'var(--box-shadow-color)'
+    },
+    colors: {
+      gray: {
+        50: 'var(--color-gray-50)',
+        100: 'var(--color-gray-100)',
+        800: 'var(--color-gray-800)'
+      },
+      anchor: 'var(--color-anchor)',
+      heading: 'var(--color-heading)',
+      header: {
+        logo: 'var(--color-header-logo)'
+      },
+      hero: {
+        'visual-line': 'var(--color-hero-visual-line)'
+      },
+      activities: {
+        icon: 'var(--color-activities-icon)'
+      },
+      card: {
+        bg: 'var(--color-card-bg)'
+      },
+      footer: {
+        bg: 'var(--color-footer-bg)',
+        text: 'var(--color-footer-text)'
+      }
+    }
   },
   plugins: [
     /**
