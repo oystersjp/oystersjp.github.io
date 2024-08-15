@@ -12,6 +12,12 @@ export default {
       {
         ignoreAtRules: ['tailwind']
       }
+    ],
+    'selector-pseudo-class-no-unknown': [
+      true,
+      {
+        ignorePseudoClasses: ['global']
+      }
     ]
   }
 }
