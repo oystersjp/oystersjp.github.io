@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets'
+import logo from './assets/logo.svg'
+import OfficialLink from '@/components/OfficialLink/OfficialLink.astro'
+---
+
+<div>
+  <header>
+    <h1>
+      <Image
+        src={logo}
+        alt="Oysters"
+        width={logo.width}
+        height={logo.height}
+        densities={[1, 2]}
+      />
+    </h1>
+  </header>
+  <aside>
+    <ul>
+      {
+        (['github', 'hatena', 'connpass'] as const).map((type) => (
+          <li>
+            <OfficialLink type={type} />
+          </li>
+        ))
+      }
+    </ul>
+  </aside>
+</div>

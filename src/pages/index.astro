@@ -1,11 +1,41 @@
+---
+import Activities from '@/components/Activities/Activities.astro'
+import Footer from '@/components/Footer/Footer.astro'
+import Header from '@/components/Header/Header.astro'
+import Hero from '@/components/Hero/Hero.astro'
+import Highlights from '@/components/Highlights/Highlights.astro'
+import Members from '@/components/Members/Members.astro'
+
+const siteUrl = Astro.site
+const ogpImageUrl = new URL('/images/ogp.png', siteUrl)
+
+const title = 'Oysters'
+const subTitle = '若手ものづくり集団 Oysters'
+---
+
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to Astro.</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={siteUrl} />
+    <meta name="description" content={subTitle} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={subTitle} />
+    <meta name="twitter:image:src" content={ogpImageUrl} />
+
+    <title>{title} | {subTitle}</title>
   </head>
+
   <body>
-    <main>Welcome to Astro.</main>
+    <Header />
+    <Hero />
+    <Activities />
+    <Members />
+    <Highlights />
+    <Footer />
   </body>
 </html>

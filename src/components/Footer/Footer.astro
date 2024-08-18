@@ -1,0 +1,76 @@
+---
+import { Image } from 'astro:assets'
+import logo from './assets/logo.svg'
+import OfficialLink from '@/components/OfficialLink/OfficialLink.astro'
+
+const photos = [
+  { image: await import('./assets/bus.jpg').then((m) => m.default) },
+  { image: await import('./assets/izakaya.jpg').then((m) => m.default) },
+  { image: await import('./assets/live.jpg').then((m) => m.default) }
+] as const
+
+const creditLinks = [
+  { title: 'Freepik', href: 'https://www.freepik.com' },
+  { title: 'Icons8', href: 'https://icons8.com' }
+] as const
+---
+
+<div>
+  <section>
+    <h2>Oystersの活動に興味がある方へ</h2>
+    <p>
+      有意義な交流が出来るように、エンジニアリングや個人開発にモチベーションがある人をご招待しています<br
+      />
+      興味がある方はメンバーの誰か、または <a
+        href="https://x.com/pinkumohikan"
+        target="_blank"
+        rel="noreferrer">@pinkumohikan</a
+      > へご連絡下さい
+    </p>
+  </section>
+  <footer>
+    <ul>
+      {
+        (['github', 'hatena', 'connpass'] as const).map((type) => (
+          <li>
+            <OfficialLink type={type} />
+          </li>
+        ))
+      }
+    </ul>
+
+    <ul>
+      {
+        photos.map((photo) => (
+          <li>
+            <Image
+              src={photo.image}
+              width={298}
+              height={149}
+              alt=""
+              densities={[1, 2]}
+            />
+          </li>
+        ))
+      }
+    </ul>
+    <p>
+      <Image src={logo} alt="" width={106} height={26} densities={[1, 2]} />
+      <small>© 2019-2023 Oysters</small>
+    </p>
+    <p>
+      <small
+        >Icons created by
+        {
+          creditLinks
+            .map((credit) => (
+              <a href={credit.href} target="_blank" rel="noreferrer">
+                {credit.title}
+              </a>
+            ))
+            .reduce((prev, current) => [prev, ' & ', current])
+        }</small
+      >
+    </p>
+  </footer>
+</div>
