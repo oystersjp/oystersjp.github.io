@@ -30,7 +30,7 @@ jobs:
       - uses: nwtgck/actions-netlify@v1.0
         name: deploy to netlify
         with:
-          publish-dir: './out'
+          publish-dir: ./dist
           github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
