@@ -1,0 +1,48 @@
+name: Visual Regression Testing
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.45.1-jammy
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Japanese fonts
+        run: |
+          apt-get update
+          apt-get purge -y fonts-wqy-zenhei fonts-ipafont-gothic
+          apt-get install -y fonts-noto-cjk-extra
+          fc-cache -fv
+      - uses: ./.github/actions/setup
+      - name: Run visual tests
+        continue-on-error: true
+        id: vrt
+        run: npm run test:vrt
+      - uses: ./.github/actions/netlify
+        id: netlify
+        timeout-minutes: 1
+        with:
+          publish-dir: ./.reg
+          netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
+      - if: ${{ steps.vrt.outcome == 'success' }}
+        name: Comment PR if success
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            **✨✨ That's perfect, there is no visual difference! ✨✨**
+            You can check [this report](${{ steps.netlify.outputs.netlify-url }}) out here.
+          comment_tag: test-report-vrt
+      - if: ${{ steps.vrt.outcome == 'failure' }}
+        name: Comment PR if failure
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            **reg-suit detected visual differences.**
+            Check [this report](${{ steps.netlify.outputs.netlify-url }}), and review them.
+          comment_tag: test-report-vrt

@@ -16,6 +16,7 @@
     "prepare": "husky",
     "preview": "astro preview",
     "start": "astro dev",
+    "test:vrt": "playwright test -u && reg-cli .reg/actual .reg/expected .reg/diff -R .reg/index.html",
     "type-check": "astro check"
   },
   "dependencies": {
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@types/eslint": "^9.6.0",
     "@typescript-eslint/parser": "^8.0.1",
+    "@playwright/test": "^1.45.3",
     "eslint": "^8.57.0",
     "eslint-plugin-astro": "^1.2.3",
     "eslint-plugin-jsx-a11y": "^6.9.0",
