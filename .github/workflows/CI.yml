@@ -1,69 +1,53 @@
 name: CI
 
 on:
+  pull_request:
+    types: [opened, synchronize]
   push:
-    branches: 
-    - '**' 
-    - '!master'
-    - '!gh-pages'
+    branches:
+      - '**'
+      - '!master'
+      - '!gh-pages'
 
 jobs:
   build:
+    if: github.event_name == 'pull_request'
     name: Build
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.16.0]
-
     steps:
-    - uses: actions/checkout@v2
-      name: Check out repository code
-    - uses: actions/setup-node@v1 
-      name: Use Node.js ${{ matrix.node-version }}
-      with:
-        node-version: ${{ matrix.node-version }}
-    - uses: actions/cache@preview
-      name: Cache ~/.npm/ 
-      with:
-        path: '~/.npm/'
-        key: ${{ runner.os }}-projectname-${{ hashFiles(format('{0}{1}', github.workspace, 'package-lock.json')) }}
-        restore-keys:
-          ${{ runner.os }}-projectname-             
-    - run: npm ci  
-    - run: npm run build
-      name: Run build
-    - uses: nwtgck/actions-netlify@v1.0     
-      name: deploy to netlify 
-      with:
-        publish-dir: './out'
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-      env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}      
+      - uses: actions/checkout@v4
+        name: Check out repository code
+      - uses: ./.github/actions/setup
+      - run: npm run build
+        name: Run build
+      - uses: ./.github/actions/netlify
+        id: netlify
+        timeout-minutes: 1
+        with:
+          publish-dir: ./out
+          netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            ### :white_check_mark: Deploy preview is ready! 
+
+            | Name | Link |
+            |----|----|
+            | :hammer: Latest commit | ${{ github.sha }} |
+            | :sunglasses: Deploy Preview | ${{ steps.netlify.outputs.netlify-url }} |
+          comment_tag: deploy-preview
 
   lint:
+    if: github.event_name == 'push'
     name: Lint
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.16.0]
-
     steps:
-    - uses: actions/checkout@v2
-      name: Check out repository code
-    - uses: actions/setup-node@v1 
-      name: Use Node.js ${{ matrix.node-version }}
-      with:
-        node-version: ${{ matrix.node-version }}
-    - uses: actions/cache@preview
-      name: Cache ~/.npm/ 
-      with:
-        path: '~/.npm/'
-        key: ${{ runner.os }}-projectname-${{ hashFiles(format('{0}{1}', github.workspace, 'package-lock.json')) }}
-        restore-keys:
-          ${{ runner.os }}-projectname-             
-    - run: npm ci
-    - run: npm run lint
-      name: Run lint
+      - uses: actions/checkout@v4
+        name: Check out repository code
+      - uses: ./.github/actions/setup
+      - run: npm run lint
+        name: Run lint
