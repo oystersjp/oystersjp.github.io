@@ -21,8 +21,9 @@ const links = {
 
 interface Props {
   type: keyof typeof links
+  size: number
 }
-const { type } = Astro.props
+const { type, size } = Astro.props
 
 const link = links[type]
 ---
@@ -30,8 +31,8 @@ const link = links[type]
 <a href={link.url} target="_blank" rel="noreferrer">
   <Image
     src={link.image}
-    width={32}
-    height={32}
+    width={size}
+    height={size}
     alt={link.alt}
     densities={[1, 2]}
     format="svg"

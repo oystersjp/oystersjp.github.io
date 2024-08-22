@@ -1,0 +1,32 @@
+---
+import playWithUs from './assets/playWithUs.svg?raw'
+import { Svg } from '@/useCases/Svg'
+---
+
+<div class="relative h-[80vh]">
+  <img
+    src="https://dummyimage.com/376x505/efefef/3C7392"
+    alt=""
+    class="size-full object-cover"
+  />
+  <div class="absolute left-0 top-0 size-full px-safe">
+    <div class="flex size-full flex-col">
+      <slot name="header" />
+      <div class="flex flex-auto items-center pl-4">
+        <Svg
+          src={playWithUs}
+          aria-hidden="true"
+          class="h-[21px] w-[115px] fill-hero-visual-line"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+<section class="container mx-auto px-safe">
+  <h2 class="sr-only">Play With Us!</h2>
+  <p class="px-4 pb-4">
+    Oystersは「Play With Us!」をモットーに活動する若手エンジニアの集団です。<br
+    />
+    「Play With Us!」には「Oystersはどんなことでも楽しければ目的達成！」という意味が込められています。
+  </p>
+</section>
