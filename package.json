@@ -32,9 +32,9 @@
     "npm": "10.8.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.45.3",
     "@types/eslint": "^9.6.0",
     "@typescript-eslint/parser": "^8.0.1",
-    "@playwright/test": "^1.45.3",
     "eslint": "^8.57.0",
     "eslint-plugin-astro": "^1.2.3",
     "eslint-plugin-jsx-a11y": "^6.9.0",
@@ -46,5 +46,8 @@
     "prettier-plugin-tailwindcss": "^0.6.6",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recommended": "^14.0.1"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.21.1"
   }
 }
