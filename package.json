@@ -48,6 +48,7 @@
     "stylelint-config-recommended": "^14.0.1"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "^4.21.1"
+    "@rollup/rollup-linux-x64-gnu": "^4.21.1",
+    "sharp": "^0.33.5"
   }
 }
