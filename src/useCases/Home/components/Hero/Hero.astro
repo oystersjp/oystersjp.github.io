@@ -1,18 +1,15 @@
 ---
 import playWithUs from './assets/playWithUs.svg?raw'
 import { Svg } from '@/useCases/Svg'
+import Background from './Background.astro'
 ---
 
-<div class="relative h-[80vh]">
-  <img
-    src="https://dummyimage.com/376x505/efefef/3C7392"
-    alt=""
-    class="size-full object-cover"
-  />
+<div class="relative h-[120vw] max-h-[60vh]">
+  <Background aria-hidden="true" />
   <div class="absolute left-0 top-0 size-full px-safe">
     <div class="flex size-full flex-col">
       <slot name="header" />
-      <div class="flex flex-auto items-center pl-4">
+      <div class="container mx-auto flex flex-auto items-center pl-4">
         <Svg
           src={playWithUs}
           aria-hidden="true"
