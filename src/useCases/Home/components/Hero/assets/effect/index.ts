@@ -1,16 +1,19 @@
 import p5 from 'p5'
-import { debounce } from './utils'
+import { debounce } from '../utils'
+import { Frame } from './debug/Frame.ts'
+import { Point } from './debug/Point.ts'
 
 type Options = {
   selector: HTMLElement
   colors: { line: string; background: string }
+  enableDebug?: boolean
 }
 
 export class Effect {
-  options: Options
+  options: Required<Options>
 
   constructor(options: Options) {
-    this.options = options
+    this.options = { enableDebug: false, ...options }
   }
 
   #createSketch(p: p5, { node }: { node: HTMLElement }) {
@@ -23,17 +26,13 @@ export class Effect {
       p.createCanvas(node.offsetWidth, node.offsetHeight)
       p.background(colors.background)
 
-      p.stroke(colors.line)
-      p.smooth()
-      p.noFill()
-
       if (this.#disableAnimation) {
         p.noLoop()
       }
     }
 
     p.draw = (() => {
-      const maxAngle = 1100
+      const { colors } = this.options
       const step = p.TWO_PI * 3 * 0.1 ** 2
       const speed = step * 0.1 ** 5
       const offset = {
@@ -41,29 +40,41 @@ export class Effect {
         z: 0
       }
       const spacing = 5
+      const { drawEdgeCoord, drawPoint } = this.#debug(
+        p,
+        this.options.enableDebug
+      )
 
       return () => {
         p.clear()
         p.translate(p.width, 0)
 
         p.beginShape()
-        for (let angle = 0; angle < maxAngle; angle += step) {
+        for (let theta = 0; theta < p.width; theta += step) {
           // 対数螺旋を描く
-          const radian = p.pow(1.06, angle)
-          const x = (spacing + radian) * p.cos(angle)
-          const y = (spacing + radian) * p.sin(angle)
+          const radian = p.pow(1.06, theta)
+          const noise = p.noise(theta, offset.y, offset.z) + 1
 
-          // `PLAY WITH US` と常に重ならないようにする
-          // 見た目的に好みだったので、アニメーションでたまに重なるケースは考慮しない
-          if (p.width * 0.5 < x && p.height * 0.4 < y) break
+          const x = (spacing + radian) * p.cos(theta) * noise
+          const y = (spacing + radian) * p.sin(theta) * noise
 
-          const noise = p.noise(angle, offset.y, offset.z) + 1
-          p.curveVertex(x * noise, y * noise)
+          // 画面外の場合は描画を終了する
+          if (x < -p.width && p.height < y) break
+
+          p.curveVertex(x, y)
+          drawPoint({ x, y, theta })
 
           offset.y -= 2 * speed
           offset.z += 2 * speed
         }
+
+        p.stroke(colors.line)
+        p.strokeWeight(1)
+        p.smooth()
+        p.noFill()
         p.endShape()
+
+        drawEdgeCoord()
       }
     })()
   }
@@ -78,6 +89,21 @@ export class Effect {
         if (this.#disableAnimation) return
         mode === 'stop' ? p.noLoop() : p.loop()
       }
+    }
+  }
+
+  #debug(p: p5, enable: boolean) {
+    p.mouseClicked = enable
+      ? () => {
+          enable = !enable
+          return false
+        }
+      : () => {}
+
+    return {
+      drawEdgeCoord: () => enable && new Frame(p).display(),
+      drawPoint: (options: ConstructorParameters<typeof Point>['1']) =>
+        enable && new Point(p, options).display()
     }
   }
 
