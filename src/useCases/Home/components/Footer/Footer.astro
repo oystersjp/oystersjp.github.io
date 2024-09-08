@@ -1,0 +1,86 @@
+---
+import { Image } from 'astro:assets'
+import logo from './assets/logo.svg?raw'
+import OfficialLink from '@/useCases/Home/components/OfficialLink/OfficialLink.astro'
+import { Svg } from '@/useCases/Svg'
+
+const photos = [
+  { image: await import('./assets/bus.jpg').then((m) => m.default) },
+  { image: await import('./assets/izakaya.jpg').then((m) => m.default) },
+  { image: await import('./assets/live.jpg').then((m) => m.default) }
+] as const
+
+const creditLinks = [
+  { title: 'Freepik', href: 'https://www.freepik.com' },
+  { title: 'Icons8', href: 'https://icons8.com' }
+] as const
+---
+
+<div class="bg-footer-bg px-safe pb-safe">
+  <section class="p-4 pt-0">
+    <h2 class="py-8 text-center font-bold">Oystersの活動に興味がある方へ</h2>
+    <p class="text-center">
+      有意義な交流が出来るように、エンジニアリングや個人開発にモチベーションがある人をご招待しています<br
+      />
+      興味がある方はメンバーの誰か、または <a
+        href="https://x.com/pinkumohikan"
+        target="_blank"
+        rel="noreferrer">@pinkumohikan</a
+      > へご連絡下さい
+    </p>
+  </section>
+  <footer class="pb-4">
+    <ul class="flex justify-center gap-2 py-4">
+      {
+        (['github', 'hatena', 'connpass'] as const).map((type) => (
+          <li>
+            <OfficialLink type={type} size={44} />
+          </li>
+        ))
+      }
+    </ul>
+    <ul class="flex justify-center gap-4 px-4 py-2">
+      {
+        photos.map((photo, index) => (
+          <li
+            class:list={[
+              'block',
+              { 'max-sm:hidden': index === photos.length - 1 }
+            ]}
+          >
+            <Image
+              src={photo.image}
+              width={298}
+              height={149}
+              alt=""
+              densities={[1, 2]}
+              class="rounded-lg"
+            />
+          </li>
+        ))
+      }
+    </ul>
+    <p class="flex flex-col items-center gap-4 text-sm">
+      <Svg
+        src={logo}
+        aria-hidden="true"
+        class="mx-auto h-[26] w-[106] fill-heading py-6"
+      />
+      <small>© 2019-2023 Oysters</small>
+    </p>
+    <p class="mt-[-4px] pb-4 text-center text-sm">
+      <small
+        >Icons created by
+        {
+          creditLinks
+            .map((credit) => (
+              <a href={credit.href} class="text-gray-800" rel="noreferrer">
+                {credit.title}
+              </a>
+            ))
+            .reduce((prev, current) => [prev, ' & ', current])
+        }</small
+      >
+    </p>
+  </footer>
+</div>

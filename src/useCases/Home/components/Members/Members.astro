@@ -1,0 +1,81 @@
+---
+import { Image } from 'astro:assets'
+import { members } from './data.ts'
+import { Svg } from '@/useCases/Svg'
+
+const memberImages = import.meta.glob<{ default: ImageMetadata }>(
+  './assets/profiles/*.{png,jpg,jpeg,svg}'
+)
+const links = [
+  {
+    field: 'x',
+    label: 'x',
+    url: 'https://x.com/{value}',
+    image: await import('./assets/x.svg?raw').then((m) => m.default)
+  },
+  {
+    field: 'github',
+    label: 'Github',
+    url: 'https://github.com/{value}',
+    image: await import('./assets/github.svg?raw').then((m) => m.default)
+  },
+  {
+    field: 'website',
+    label: 'ウェブサイト',
+    url: '{value}',
+    image: await import('./assets/website.svg?raw').then((m) => m.default)
+  }
+] as const
+---
+
+<section>
+  <h2 class="p-4 font-bold text-heading">メンバー</h2>
+  <p class="px-4">
+    50名の若手エンジニアの集いです
+    <ul class="grid grid-cols-2 gap-x-2 md:grid-cols-4 lg:grid-cols-5">
+      {
+        members.map((member) => (
+          <li>
+            <div class="flex flex-col items-center p-2">
+              <div class="flex-none p-2">
+                <Image
+                  src={memberImages[`./assets/profiles/${member.image}`]()}
+                  width={160}
+                  height={160}
+                  alt=""
+                  densities={[1, 2]}
+                  class="rounded-full shadow"
+                />
+              </div>
+              <span class="py-2 font-bold">{member.name}</span>
+              <ul class="flex gap-2 py-2">
+                {links.map(
+                  (link) =>
+                    member[link.field] && (
+                      <li>
+                        <a
+                          href={link.url.replace(
+                            '{value}',
+                            member[link.field] as string
+                          )}
+                          target="_blank"
+                          rel="noreferrer"
+                          class="flex size-[32px] items-center justify-center rounded-full bg-gray-50 shadow"
+                        >
+                          <Svg
+                            src={link.image}
+                            aria-label={link.label}
+                            class="size-[20px]"
+                          />
+                        </a>
+                      </li>
+                    )
+                )}
+              </ul>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </p>
+</section>

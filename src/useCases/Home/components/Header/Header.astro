@@ -1,0 +1,24 @@
+---
+import logo from './assets/logo.svg?raw'
+import OfficialLink from '@/useCases/Home/components/OfficialLink/OfficialLink.astro'
+import { Svg } from '@/useCases/Svg'
+---
+
+<div class="flex h-[48px] flex-row justify-between px-4">
+  <header class="self-center">
+    <h1>
+      <Svg src={logo} aria-label="Oysters" class="fill-header-logo" />
+    </h1>
+  </header>
+  <aside class="self-center">
+    <ul class="flex flex-row gap-2">
+      {
+        (['github', 'hatena', 'connpass'] as const).map((type) => (
+          <li>
+            <OfficialLink type={type} size={32} />
+          </li>
+        ))
+      }
+    </ul>
+  </aside>
+</div>
