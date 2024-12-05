@@ -4,21 +4,63 @@ on:
   pull_request:
     types: [opened, synchronize]
 
+env:
+  screenshots-dir: './.reg/screenshots'
+
 jobs:
-  test:
+  prepare-screenshots-actual:
+    name: Take actual screenshots
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.46.1-jammy
     timeout-minutes: 60
+    outputs:
+      cache-key: ${{ steps.screenshots.outputs.cache-key }}
     steps:
       - uses: actions/checkout@v4
-      - name: Install Japanese fonts
-        run: |
-          apt-get update
-          apt-get purge -y fonts-wqy-zenhei fonts-ipafont-gothic
-          apt-get install -y fonts-noto-cjk-extra
-          fc-cache -fv
+      - uses: './.github/actions/screenshots'
+        id: screenshots
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: ${{ env.screenshots-dir }}
+
+  prepare-screenshots-expected:
+    name: Take expected screenshots
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.46.1-jammy
+    timeout-minutes: 60
+    outputs:
+      cache-key: ${{ steps.screenshots.outputs.cache-key }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: './.github/actions/screenshots'
+        id: screenshots
+        with:
+          ref: ${{ github.base_ref }}
+          path: ${{ env.screenshots-dir }}
+
+  test:
+    name: Verify screenshots
+    needs: [prepare-screenshots-actual, prepare-screenshots-expected]
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.46.1-jammy
+    steps:
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
+      - name: Restore actual screenshots
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.screenshots-dir }}
+          key: ${{ needs.prepare-screenshots-actual.outputs.cache-key }}
+      - run: mv ${{ env.screenshots-dir }} .reg/actual
+      - name: Restore expected screenshots
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.screenshots-dir }}
+          key: ${{ needs.prepare-screenshots-expected.outputs.cache-key }}
+      - run: mv ${{ env.screenshots-dir }} .reg/expected
       - name: Run visual tests
         continue-on-error: true
         id: vrt
