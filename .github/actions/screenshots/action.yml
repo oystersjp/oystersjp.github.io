@@ -1,0 +1,54 @@
+name: Take screenshots
+
+description: Take screenshots
+
+inputs:
+  ref:
+    description: target branch
+  path:
+    description: the path to a directory containing saved screenshots
+    required: true
+
+outputs:
+  cache-key:
+    description: the cache key name
+    value: vrt-${{ steps.latest-commit.outputs.sha }}
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
+      with:
+        ref: ${{ inputs.ref }}
+        clean: false
+    - name: Check latest commit hash
+      id: latest-commit
+      run: |
+        git config --global --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}
+        echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      shell: bash
+    - name: Restore screenshots
+      id: vrt-screenshots
+      uses: actions/cache@v4
+      with:
+        path: ${{ inputs.path }}
+        key: vrt-${{ steps.latest-commit.outputs.sha }}
+    - if: ${{ steps.vrt-screenshots.outputs.cache-hit != 'true' }}
+      name: Install Japanese fonts
+      run: |
+        apt-get update
+        apt-get purge -y fonts-wqy-zenhei fonts-ipafont-gothic
+        apt-get install -y fonts-noto-cjk-extra
+        fc-cache -fv
+      shell: bash
+    - if: ${{ steps.vrt-screenshots.outputs.cache-hit != 'true' }}
+      uses: ./.github/actions/setup
+    - if: ${{ steps.vrt-screenshots.outputs.cache-hit != 'true' }}
+      name: Take screenshots
+      run: npm run screenshot
+      shell: bash
+    # ref: https://github.com/actions/checkout/issues/692#issuecomment-1112305878
+    - uses: actions/checkout@v4
+      with:
+        clean: false
