@@ -1,5 +1,4 @@
 import { test } from '@playwright/test'
-
 test.describe('Capture screenshots', () => {
   const workDir = '.reg'
   const actualDir = `${workDir}/actual`
