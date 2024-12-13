@@ -21,7 +21,6 @@ runs:
     - uses: actions/checkout@v4
       with:
         ref: ${{ inputs.ref }}
-        clean: false
     - name: Set cache key
       id: cache
       run: |
@@ -33,7 +32,7 @@ runs:
       shell: bash
     - name: Restore screenshots
       id: vrt-screenshots
-      uses: actions/cache@v4
+      uses: actions/cache/restore@v4
       with:
         path: ${{ inputs.path }}
         key: ${{ steps.cache.outputs.key }}
@@ -51,6 +50,12 @@ runs:
       name: Take screenshots
       run: npm run screenshot
       shell: bash
+    - if: ${{ steps.vrt-screenshots.outputs.cache-hit != 'true' }}
+      name: Restore screenshots
+      uses: actions/cache/save@v4
+      with:
+        path: ${{ inputs.path }}
+        key: ${{ steps.cache.outputs.key }}
     # ref: https://github.com/actions/checkout/issues/692#issuecomment-1112305878
     - uses: actions/checkout@v4
       with:
