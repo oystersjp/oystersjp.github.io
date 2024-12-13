@@ -65,8 +65,8 @@ export class Effect {
           const radian = p.pow(1.06, theta)
           const noise = p.noise(theta, offset.y, offset.z) + 1
 
-          const x = (spacing + radian) * p.cos(theta) * noise
-          const y = (spacing + radian) * p.sin(theta) * noise
+          const x = p.round((spacing + radian) * p.cos(theta) * noise, 2)
+          const y = p.round((spacing + radian) * p.sin(theta) * noise, 2)
 
           // 画面外の場合は描画を終了する
           if (x < -p.width && p.height < y) break
