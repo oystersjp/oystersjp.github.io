@@ -12,7 +12,7 @@ inputs:
 outputs:
   cache-key:
     description: the cache key name
-    value: vrt-${{ steps.latest-commit.outputs.sha }}
+    value: ${{ steps.cache.outputs.key }}
 
 runs:
   using: composite
@@ -22,18 +22,21 @@ runs:
       with:
         ref: ${{ inputs.ref }}
         clean: false
-    - name: Check latest commit hash
-      id: latest-commit
+    - name: Set cache key
+      id: cache
       run: |
+        # `git rev-parse HEAD`実行時にwarningが発生する問題の対応策
         git config --global --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}
-        echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+        # テストケース自体に変更がある場合はキャッシュを使わず、スクリーンショットを撮影し直す
+        echo "key=vrt-$(git rev-parse HEAD)-${{ hashFiles('playwright.config.ts', 'tests/vrt.spec.ts') }}" >> "$GITHUB_OUTPUT"
       shell: bash
     - name: Restore screenshots
       id: vrt-screenshots
       uses: actions/cache@v4
       with:
         path: ${{ inputs.path }}
-        key: vrt-${{ steps.latest-commit.outputs.sha }}
+        key: ${{ steps.cache.outputs.key }}
     - if: ${{ steps.vrt-screenshots.outputs.cache-hit != 'true' }}
       name: Install Japanese fonts
       run: |
