@@ -1,22 +1,36 @@
 import p5 from 'p5'
 import { debounce } from '../utils'
-import { Frame } from './debug/Frame.ts'
-import { Point } from './debug/Point.ts'
 
 type Options = {
   selector: HTMLElement
   colors: { line: string; background: string }
-  enableDebug?: boolean
 }
 
 export class Effect {
   options: Required<Options>
 
   constructor(options: Options) {
-    this.options = { enableDebug: false, ...options }
+    this.options = options
   }
 
-  #createSketch(p: p5, { node }: { node: HTMLElement }) {
+  #createSketch(
+    p: p5,
+    {
+      node,
+      callbacks
+    }: {
+      node: HTMLElement
+      callbacks: null | {
+        /** エフェクトの描画が完了したときに呼び出される */
+        afterDraw: (p: p5) => void
+        /** curveVertex()が実行された直後に呼び出される */
+        afterDrawVertex: (
+          p: p5,
+          params: Record<'x' | 'y' | 'theta', number>
+        ) => void
+      }
+    }
+  ) {
     // VRTを考慮して同じパターンが出力されるようにSeed値を設定する
     p.noiseSeed(100)
 
@@ -40,10 +54,6 @@ export class Effect {
         z: 0
       }
       const spacing = 5
-      const { drawEdgeCoord, drawPoint } = this.#debug(
-        p,
-        this.options.enableDebug
-      )
 
       return () => {
         p.clear()
@@ -55,14 +65,14 @@ export class Effect {
           const radian = p.pow(1.06, theta)
           const noise = p.noise(theta, offset.y, offset.z) + 1
 
-          const x = (spacing + radian) * p.cos(theta) * noise
-          const y = (spacing + radian) * p.sin(theta) * noise
+          const x = p.round((spacing + radian) * p.cos(theta) * noise, 2)
+          const y = p.round((spacing + radian) * p.sin(theta) * noise, 2)
 
           // 画面外の場合は描画を終了する
           if (x < -p.width && p.height < y) break
 
           p.curveVertex(x, y)
-          drawPoint({ x, y, theta })
+          callbacks?.afterDrawVertex(p, { x, y, theta })
 
           offset.y -= 2 * speed
           offset.z += 2 * speed
@@ -74,14 +84,22 @@ export class Effect {
         p.noFill()
         p.endShape()
 
-        drawEdgeCoord()
+        callbacks?.afterDraw(p)
       }
     })()
   }
 
-  #init() {
+  async #init() {
     const { selector: node } = this.options
-    const p = new p5((p) => this.#createSketch(p, { node }), node)
+    const { callbacks, bindEvents } = import.meta.env
+      .PUBLIC_HERO_EFFECT_ENABLE_DEBUG
+      ? await import('./debug').then((m) => m.create())
+      : { bindEvents: null, callbacks: null }
+    const p = new p5(
+      (p: p5) => this.#createSketch(p, { node, callbacks }),
+      node
+    )
+    bindEvents?.(p)
 
     return {
       resize: () => p.resizeCanvas(node.offsetWidth, node.offsetHeight),
@@ -92,27 +110,12 @@ export class Effect {
     }
   }
 
-  #debug(p: p5, enable: boolean) {
-    p.mouseClicked = enable
-      ? () => {
-          enable = !enable
-          return false
-        }
-      : () => {}
-
-    return {
-      drawEdgeCoord: () => enable && new Frame(p).display(),
-      drawPoint: (options: ConstructorParameters<typeof Point>['1']) =>
-        enable && new Point(p, options).display()
-    }
-  }
-
   get #disableAnimation() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches
   }
 
-  draw() {
-    const { resize, animate } = this.#init()
+  async draw() {
+    const { resize, animate } = await this.#init()
 
     // ウィンドウがリサイズされたらエフェクトもリサイズする
     window.addEventListener('resize', debounce(resize, 800))
