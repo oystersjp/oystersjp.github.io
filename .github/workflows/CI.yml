@@ -36,7 +36,7 @@ jobs:
 
             | Name | Link |
             |----|----|
-            | :hammer: Latest commit | ${{ github.sha }} |
+            | :hammer: Latest commit | ${{ github.event.pull_request.head.sha }} |
             | :sunglasses: Deploy Preview | ${{ steps.netlify.outputs.netlify-url }} |
           comment_tag: deploy-preview
 
