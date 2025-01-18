@@ -5,7 +5,7 @@ export const members: Readonly<
   >
 > = [
   {
-    name: '02',
+    name: 'O2',
     image: '02.jpg',
     x: 'cocoeyes02',
     github: 'cocoeyes02',
