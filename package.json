@@ -16,7 +16,8 @@
     "prepare": "husky",
     "preview": "astro preview",
     "start": "astro dev",
-    "test:vrt": "playwright test -u && reg-cli .reg/actual .reg/expected .reg/diff -R .reg/index.html",
+    "screenshot": "playwright test -u",
+    "test:vrt": "reg-cli .reg/actual .reg/expected .reg/diff -R .reg/index.html",
     "type-check": "astro check"
   },
   "dependencies": {

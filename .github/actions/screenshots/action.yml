@@ -1,0 +1,57 @@
+name: Take screenshots
+
+description: Take screenshots
+
+inputs:
+  ref:
+    description: target branch
+  path:
+    description: the path to a directory containing saved screenshots
+    required: true
+
+outputs:
+  cache-key:
+    description: the cache key name
+    value: ${{ steps.cache.outputs.key }}
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
+      with:
+        ref: ${{ inputs.ref }}
+        clean: false
+    - name: Set cache key
+      id: cache
+      run: |
+        # `git rev-parse HEAD`実行時にwarningが発生する問題の対応策
+        git config --global --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}
+
+        # テストケース自体に変更がある場合はキャッシュを使わず、スクリーンショットを撮影し直す
+        echo "key=vrt-$(git rev-parse HEAD)-${{ hashFiles('playwright.config.ts', 'tests/vrt.spec.ts') }}" >> "$GITHUB_OUTPUT"
+      shell: bash
+    - name: Restore screenshots
+      id: vrt-screenshots
+      uses: actions/cache@v4
+      with:
+        path: ${{ inputs.path }}
+        key: ${{ steps.cache.outputs.key }}
+    - if: ${{ steps.vrt-screenshots.outputs.cache-hit != 'true' }}
+      name: Install Japanese fonts
+      run: |
+        apt-get update
+        apt-get purge -y fonts-wqy-zenhei fonts-ipafont-gothic
+        apt-get install -y fonts-noto-cjk-extra
+        fc-cache -fv
+      shell: bash
+    - if: ${{ steps.vrt-screenshots.outputs.cache-hit != 'true' }}
+      uses: ./.github/actions/setup
+    - if: ${{ steps.vrt-screenshots.outputs.cache-hit != 'true' }}
+      name: Take screenshots
+      run: npm run screenshot
+      shell: bash
+    # ref: https://github.com/actions/checkout/issues/692#issuecomment-1112305878
+    - uses: actions/checkout@v4
+      with:
+        clean: false
