@@ -1,13 +1,15 @@
-import { test } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 test.describe('Capture screenshots', () => {
   const workDir = '.reg'
   const actualDir = `${workDir}/actual`
   const expectedDir = `${workDir}/expected`
 
   test('Home', async ({ page }, info) => {
+    // 背景エフェクトのアニメーションを無効化
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+
     for (const dir of [expectedDir, actualDir]) {
       const isExpectedDir = expectedDir === dir
-
       await page.goto(isExpectedDir ? 'https://oysters.dev' : '/')
 
       // loading='lazy'が指定されている画像を読み込む
