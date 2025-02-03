@@ -1,0 +1,94 @@
+---
+import './PageHome.css'
+
+import Activities from '@/useCases/Home/components/Activities/Activities.astro'
+import Footer from '@/useCases/Home/components/Footer/Footer.astro'
+import Header from '@/useCases/Home/components/Header/Header.astro'
+import Hero from '@/useCases/Home/components/Hero/Hero.astro'
+import Highlights from '@/useCases/Home/components/Highlights/Highlights.astro'
+import Members from '@/useCases/Home/components/Members/Members.astro'
+
+const siteUrl = Astro.site
+const ogpImageUrl = new URL('/images/ogp.png', siteUrl)
+
+const title = 'Oysters'
+const subTitle = '若手ものづくり集団 Oysters'
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={siteUrl} />
+    <meta name="description" content={subTitle} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={subTitle} />
+    <meta name="twitter:image:src" content={ogpImageUrl} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <title>{title} | {subTitle}</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-WM91B782B2"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+
+      gtag('config', 'G-WM91B782B2')
+    </script>
+    <!-- Google Tag Manager -->
+    <script is:inline>
+      ;(function (w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : ''
+        j.async = true
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, 'script', 'dataLayer', 'GTM-WB6N7QH')
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+</html>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript
+    ><iframe
+      title="No content"
+      src="https://www.googletagmanager.com/ns.html?id=GTM-WB6N7QH"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden"></iframe></noscript
+  >
+  <!-- End Google Tag Manager (noscript) -->
+
+  <Hero>
+    <Header slot="header" />
+  </Hero>
+  <main class="container mx-auto pb-9 px-safe">
+    <div class="mt-9">
+      <Activities />
+    </div>
+    <div class="mt-9">
+      <Members />
+    </div>
+    <div class="mt-9">
+      <Highlights />
+    </div>
+  </main>
+  <Footer />
+</body>

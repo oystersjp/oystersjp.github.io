@@ -1,0 +1,32 @@
+---
+import Card from './Card.astro'
+import { highlights } from './data.ts'
+---
+
+<section>
+  <h2 class="p-4 font-bold text-heading">作ったもの、実績</h2>
+  <p>
+    <ul class="grid grid-cols-1 gap-6 px-4 md:grid-cols-2 lg:grid-cols-3">
+      {
+        highlights.map((item) => (
+          <li>
+            {'link' in item ? (
+              <a
+                href={item.link.url}
+                target="_blank"
+                rel="noreferrer"
+                class="block h-full no-underline"
+              >
+                <Card {...item} />
+              </a>
+            ) : (
+              <div class="h-full">
+                <Card {...item} />
+              </div>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </p>
+</section>
