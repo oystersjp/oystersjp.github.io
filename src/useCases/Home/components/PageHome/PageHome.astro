@@ -20,9 +20,14 @@ const subTitle = '若手ものづくり集団 Oysters'
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content={siteUrl} />
+
     <meta name="description" content={subTitle} />
+    <meta name="author" content={title} />
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={subTitle} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={ogpImageUrl} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={subTitle} />
