@@ -1,0 +1,84 @@
+name: Take screenshots
+
+inputs:
+  ref:
+    description: target branch or commit
+  path:
+    description: the path to a directory containing saved screenshots
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Install Japanese fonts
+      run: |
+        get_ja_font_family() {
+          fc-match -f "%{family}\n" :lang=ja
+        }
+
+        if echo "$(get_ja_font_family)" | grep -Fq "Noto Sans CJK JP"; then
+          echo "[INFO] Already install Noto Sans CJK JP. Skipping font installation."
+        else
+          echo "[INFO] Installing Noto Sans CJK JP font..."
+          apt-get update
+          apt-get install -y --no-install-recommends fonts-noto-cjk-extra
+
+          {
+            echo '<?xml version="1.0"?>'
+            echo '<!DOCTYPE fontconfig SYSTEM "fonts.dtd">'
+            echo '<fontconfig>'
+            echo '  <match>'
+            echo '    <test name="lang" compare="contains">'
+            echo '      <string>ja</string>'
+            echo '    </test>'
+            echo '    <test name="family" compare="eq">'
+            echo '      <string>sans-serif</string>'
+            echo '    </test>'
+            echo '    <edit name="family" mode="prepend" binding="strong">'
+            echo '      <string>Noto Sans CJK JP</string>'
+            echo '    </edit>'
+            echo '  </match>'
+            echo '</fontconfig>'
+          } > /etc/fonts/conf.d/69-noto-cjk-priority.conf
+          fc-cache -fv
+        fi
+      shell: bash
+
+    - name: Allow safe Git directory
+      run: |
+        git config --global --add safe.directory "$(pwd)"
+      shell: bash
+
+    - name: Clean existing worktree if exists
+      run: |
+        set -eux
+        if [ -d ".worktree/${{ inputs.ref }}" ]; then
+          echo "[INFO] Removing existing worktree: .worktree/${{ inputs.ref }}"
+          git worktree remove .worktree/${{ inputs.ref }} --force || true
+        fi
+
+        if [ -d ".git/worktrees/${{ inputs.ref }}" ]; then
+          echo "[INFO] Removing .git/worktrees/${{ inputs.ref }}"
+          rm -rf .git/worktrees/${{ inputs.ref }}
+        fi
+      shell: bash
+
+    - name: Prepare worktree for target ref
+      run: |
+        set -eux
+        git worktree add .worktree/${{ inputs.ref }} ${{ inputs.ref }}
+      shell: bash
+
+    - uses: ./.github/actions/setup
+      with:
+        working-directory: .worktree/${{ inputs.ref }}
+
+    - name: Take screenshots
+      run: npm run screenshot -- --output=${{ inputs.path }}
+      working-directory: .worktree/${{ inputs.ref }}
+      shell: bash
+
+    - name: Cleanup
+      run: |
+        git worktree remove .worktree/${{ inputs.ref }} --force
+      shell: bash

@@ -4,21 +4,34 @@ on:
   pull_request:
     types: [opened, synchronize]
 
+env:
+  screenshots-dir: './.reg/screenshots'
+
 jobs:
   test:
+    name: Verify screenshots
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.46.1-jammy
-    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
-      - name: Install Japanese fonts
-        run: |
-          apt-get update
-          apt-get purge -y fonts-wqy-zenhei fonts-ipafont-gothic
-          apt-get install -y fonts-noto-cjk-extra
-          fc-cache -fv
-      - uses: ./.github/actions/setup
+        with:
+          fetch-depth: 0
+
+      - name: Take expected screenshots from the base branch
+        uses: './.github/actions/screenshots'
+        with:
+          ref: ${{ github.base_ref }}
+          path: ${{ env.screenshots-dir }}
+      - run: mv ${{ env.screenshots-dir }} .reg/expected
+
+      - name: Take actual screenshots from the current branch
+        uses: './.github/actions/screenshots'
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: ${{ env.screenshots-dir }}
+      - run: mv ${{ env.screenshots-dir }} .reg/actual
+
       - name: Run visual tests
         continue-on-error: true
         id: vrt
