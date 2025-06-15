@@ -2,14 +2,21 @@ name: Setup
 
 description: Setup environment
 
+inputs:
+  working-directory:
+    description: The working directory to run the setup in.
+    required: false
+    default: ${{ github.workspace }}
+
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
+      working-directory: ${{ inputs.working-directory }}
       with:
         node-version-file: package.json
     - name: Cache node modules
+      working-directory: ${{ inputs.working-directory }}
       id: node_modules_cache_id
       uses: actions/cache@v4
       env:
@@ -18,5 +25,6 @@ runs:
         path: '**/node_modules'
         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
     - if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
+      working-directory: ${{ inputs.working-directory }}
       shell: bash
       run: npm ci
